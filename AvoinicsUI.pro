@@ -28,19 +28,3 @@ QML_DESIGNER_IMPORT_PATH =
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-DISTFILES += \
-    11.png \
-    12.png \
-    13.png \
-    14.png \
-    15.png \
-    2.png \
-    3.png \
-    4.png \
-    5.png \
-    6.png \
-    7.png \
-    8.png \
-    9.png \
-    Home.png

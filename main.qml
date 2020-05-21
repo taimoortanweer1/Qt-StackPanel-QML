@@ -5,7 +5,7 @@ ApplicationWindow {
     id: window
     visible: true
     width: 1366
-    height: 768
+    height: 700
     title: qsTr("Acceuil")
 
     header: ToolBar {
@@ -111,6 +111,14 @@ ApplicationWindow {
                 onClicked: {
                     stackView.push("Page3Form.ui.qml")
                     drawer.close()
+                }
+            }
+
+            ItemDelegate {
+                text: qsTr("Exit Program")
+                width: parent.width
+                onClicked: {
+                    Qt.quit()
                 }
             }
 

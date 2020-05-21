@@ -5,7 +5,8 @@ import QtQuick.Controls 2.14
 Page {
     width: 1366
     height: 768
-    title: qsTr("Introduction")
+    title: qsTr("Panneau de configuration audio (ACP)
+")
     signal requestStackChange(var stack, var properties)
 
     Button {
@@ -28,7 +29,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("0_SystemeForm.qml", {});
+                   requestStackChange("7_rmp.qml", {});
                 }
             }
         }
@@ -54,7 +55,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("2_Intro-2.qml", {});
+                   requestStackChange("9_simulation.qml", {});
                 }
             }
         }
@@ -62,6 +63,6 @@ Page {
 
     background: Rectangle {
         anchors.fill: parent
-        Image { source: "images/1.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
+        Image { source: "images/8.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
     }
 }

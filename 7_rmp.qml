@@ -5,7 +5,7 @@ import QtQuick.Controls 2.14
 Page {
     width: 1366
     height: 768
-    title: qsTr("Introduction")
+    title: qsTr("Panneau de commande radio (RMP)")
     signal requestStackChange(var stack, var properties)
 
     Button {
@@ -28,7 +28,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("0_SystemeForm.qml", {});
+                   requestStackChange("4_emitteur-recep.qml", {});
                 }
             }
         }
@@ -54,7 +54,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("2_Intro-2.qml", {});
+                   requestStackChange("8_acp.qml", {});
                 }
             }
         }
@@ -62,6 +62,6 @@ Page {
 
     background: Rectangle {
         anchors.fill: parent
-        Image { source: "images/1.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
+        Image { source: "images/7.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
     }
 }

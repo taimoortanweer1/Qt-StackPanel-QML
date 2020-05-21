@@ -6,15 +6,10 @@
         <file>qtquickcontrols2.conf</file>
         <file>2_Intro-2.qml</file>
         <file>HomeForm.qml</file>
-        <file>images/10.png</file>
         <file>images/11.png</file>
-        <file>images/12.png</file>
         <file>images/13.png</file>
         <file>images/14.png</file>
         <file>images/15.png</file>
-        <file>images/6.png</file>
-        <file>images/7.png</file>
-        <file>images/8.png</file>
         <file>images/9.png</file>
         <file>images/Home.png</file>
         <file>images/0.png</file>
@@ -23,5 +18,19 @@
         <file>3_Intro-3.qml</file>
         <file>images/3.png</file>
         <file>images/back.png</file>
+        <file>4_emitteur-recep.qml</file>
+        <file>images/4.png</file>
+        <file>5_emitteur.qml</file>
+        <file>6_recepteur.qml</file>
+        <file>images/5.png</file>
+        <file>images/6.png</file>
+        <file>7_rmp.qml</file>
+        <file>8_acp.qml</file>
+        <file>9_simulation.qml</file>
+        <file>images/7.png</file>
+        <file>images/8.png</file>
+        <file>10_com_avion.qml</file>
+        <file>11_com_sol.qml</file>
+        <file>images/10.png</file>
     </qresource>
 </RCC>

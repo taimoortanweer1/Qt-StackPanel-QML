@@ -5,13 +5,13 @@ import QtQuick.Controls 2.14
 Page {
     width: 1366
     height: 768
-    title: qsTr("Introduction")
+    title: qsTr("Simulation")
     signal requestStackChange(var stack, var properties)
 
     Button {
         id: control
-        text: qsTr("Retour")
-        font.pointSize: 15
+        text: qsTr("Communication avion-avion")
+        font.pointSize: 13
         width: 250
         y: parent.height * 0.8
         x: parent.width * 0.5 - 1.5 * width
@@ -28,7 +28,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("0_SystemeForm.qml", {});
+                   requestStackChange("10_com_avion.qml", {});
                 }
             }
         }
@@ -36,8 +36,8 @@ Page {
 
     Button {
         id: control1
-        text: qsTr("Suivant")
-        font.pointSize: 15
+        text: qsTr("Communication avion-sol")
+        font.pointSize: 13
         width: 250
         y: parent.height * 0.8
         x: parent.width * 0.5 + width / 2
@@ -54,7 +54,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("2_Intro-2.qml", {});
+                   requestStackChange("11_com_sol.qml", {});
                 }
             }
         }
@@ -62,6 +62,6 @@ Page {
 
     background: Rectangle {
         anchors.fill: parent
-        Image { source: "images/1.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
+        Image { source: "images/9.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
     }
 }
