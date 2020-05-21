@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>0_SystemeForm.qml</file>
+        <file>1_Intro.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>2_Intro-2.qml</file>
+        <file>HomeForm.qml</file>
+        <file>images/10.png</file>
+        <file>images/11.png</file>
+        <file>images/12.png</file>
+        <file>images/13.png</file>
+        <file>images/14.png</file>
+        <file>images/15.png</file>
+        <file>images/6.png</file>
+        <file>images/7.png</file>
+        <file>images/8.png</file>
+        <file>images/9.png</file>
+        <file>images/Home.png</file>
+        <file>images/0.png</file>
+        <file>images/2.png</file>
+        <file>images/1.png</file>
+        <file>3_Intro-3.qml</file>
+        <file>images/3.png</file>
+        <file>images/back.png</file>
+    </qresource>
+</RCC>
