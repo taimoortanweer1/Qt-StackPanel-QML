@@ -27,16 +27,27 @@ Page {
                  id: grid
                  anchors.fill: parent
                  columns: 5
+                 columnSpacing: 3
                  rows: 3
 
 
                  Text { text: "Active";   Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter; }
-                 Text { Layout.columnSpan: 2; text: "" ;   Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter; }
+                 Text { text: "" ;   Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter; }
                  Text { text: "Standby";   Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter; }
-
+                 Text { text: "" ;   Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter; }
+                 Text { text: "" ;   Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter; }
 
                  SpinBox { value: 200 ;   Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter; }
-                 Switch { text: "Channel";   Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter; }
+                 Switch  { id:channel; text: "Active";   Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter;
+                 MouseArea {
+                     onClicked: {
+                         if (channel.checked == true)
+                         { channel.text = "Standby" }
+                         else
+                         { channel.text = "Active" }
+                     }
+                 }
+                 }
                  SpinBox { value: 300 ;   Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter; }
 
                  RoundButton { text: "VHF1";   Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter; }

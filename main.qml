@@ -60,7 +60,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    stackView.push("Page1Form.qml")
+                    stackView.push("4_emitteur-recep.qml")
                     drawer.close()
                 }
             }
@@ -70,7 +70,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    stackView.push("Page1Form.ui.qml")
+                    stackView.push("7_rmp.qml")
                     drawer.close()
                 }
             }
@@ -79,7 +79,25 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    stackView.push("Page1Form.ui.qml")
+                    stackView.push("8_acp.qml")
+                    drawer.close()
+                }
+            }
+            ItemDelegate{
+                text: qsTr("Unite de gestion audio")
+                x: parent.width / 6
+                width: parent.width - x
+                onClicked: {
+                    stackView.push("12_gest.qml")
+                    drawer.close()
+                }
+            }
+            ItemDelegate{
+                text: qsTr("Bande radiofrequence")
+                x: parent.width / 6
+                width: parent.width - x
+                onClicked: {
+                    stackView.push("13_bande.qml")
                     drawer.close()
                 }
             }
@@ -88,7 +106,7 @@ ApplicationWindow {
                 text: qsTr("Simulation")
                 width: parent.width
                 onClicked: {
-                    stackView.push("0_SystemeForm.qml")
+                    stackView.push("9_simulation.qml")
                     drawer.close()
                 }
 
@@ -99,7 +117,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    stackView.push("Page2Form.qml")
+                    stackView.push("10_com_avion.qml")
                     drawer.close()
                 }
             }
@@ -109,7 +127,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    stackView.push("Page3Form.ui.qml")
+                    stackView.push("11_com_sol.qml")
                     drawer.close()
                 }
             }
