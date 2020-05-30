@@ -4,8 +4,8 @@ import QtQuick.Controls 2.14
 ApplicationWindow {
     id: window
     visible: true
-    width: 1366
-    height: 700
+    width: 1300
+    height: 620
     title: qsTr("Acceuil")
 
     header: ToolBar {
@@ -91,9 +91,19 @@ ApplicationWindow {
                     stackView.push("12_gest.qml")
                     drawer.close()
                 }
-            }
+            }            
+
             ItemDelegate{
                 text: qsTr("Bande radiofrequence")
+                x: parent.width / 6
+                width: parent.width - x
+                onClicked: {
+                    stackView.push("13_bande.qml")
+                    drawer.close()
+                }
+            }
+            ItemDelegate{
+                text: qsTr("Phraséologie aéronautique ")
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {

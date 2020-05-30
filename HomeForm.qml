@@ -3,8 +3,8 @@ import QtQuick.Controls 2.14
 import QtQuick.Controls.Styles 1.4
 
 Page {
-    width: 1366
-    height: 768
+    width: 1300
+    height: 620
     title: qsTr("Acceuil")
     signal requestStackChange(var stack, var properties)
     Button {
@@ -19,15 +19,16 @@ Page {
 
         background: Rectangle {
             anchors.fill: parent
-            color: "#f9c5bd"
-            opacity: enabled ? 1 : 0.3
-            border.color: control.hovered ? "#1dbab4" : "#21be2b"
-            border.width: 1
-            radius: 10
+            color: control.hovered ? "#ffffff" : "transparent"
+            border.color: "#000000"
+            border.width: 2
 
+            Text {
+                color: "#000000"
+            }
 
             MouseArea {
-                anchors.fill: parent                
+                anchors.fill: parent
                 onClicked: {
                    requestStackChange("0_SystemeForm.qml", {});
                 }

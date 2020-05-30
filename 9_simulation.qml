@@ -10,19 +10,24 @@ Page {
 
     Button {
         id: control
-        text: qsTr("Communication avion-avion")
         font.pointSize: 13
-        width: 250
-        y: parent.height * 0.8
-        x: parent.width * 0.5 - 1.5 * width
+        width: 200
+        y: parent.height - 250
+        x: parent.width * 0.5 - 1.75 * width
+
+        contentItem: Text {
+                   color: control.hovered ? "#000000" : "#ffffff"
+                   text: qsTr("Communication \n avion-avion")
+                   font.pointSize: 15
+                   horizontalAlignment: Text.AlignHCenter
+                   verticalAlignment: Text.AlignVCenter
+        }
 
         background: Rectangle {
             anchors.fill: parent
-            color: "#f9c5bd"
-            opacity: enabled ? 1 : 0.3
-            border.color: control.hovered ? "#1dbab4" : "#21be2b"
-            border.width: 1
-            radius: 10
+            color: control.hovered ? "#ffffff" : "transparent"
+            border.color: "#ffffff"
+            border.width: 2
 
 
             MouseArea {
@@ -36,20 +41,24 @@ Page {
 
     Button {
         id: control1
-        text: qsTr("Communication avion-sol")
         font.pointSize: 13
-        width: 250
-        y: parent.height * 0.8
-        x: parent.width * 0.5 + width / 2
+        width: 200
+        y: parent.height - 250
+        x: parent.width * 3 / 4 - width * 0.75
+
+        contentItem: Text {
+                   color: control1.hovered ? "#000000" : "#ffffff"
+                   text: qsTr("Communication \n avion-sol")
+                   font.pointSize: 15
+                   horizontalAlignment: Text.AlignHCenter
+                   verticalAlignment: Text.AlignVCenter
+        }
 
         background: Rectangle {
             anchors.fill: parent
-            color: "#f9c5bd"
-            opacity: enabled ? 1 : 0.3
-            border.color: control.hovered ? "#1dbab4" : "#21be2b"
-            border.width: 1
-            radius: 10
-
+            color: control1.hovered ? "#ffffff" : "transparent"
+            border.color: "#ffffff"
+            border.width: 2
 
             MouseArea {
                 anchors.fill: parent

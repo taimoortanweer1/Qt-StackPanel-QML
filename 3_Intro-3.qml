@@ -2,8 +2,8 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 
 Page {
-    width: 1366
-    height: 768
+    width: 1300
+    height: 620
     title: qsTr("Introduction")
     signal requestStackChange(var stack, var properties)
 
@@ -17,6 +17,7 @@ Page {
             anchors.fill: parent
             color: "transparent"
             opacity: 1
+
             Image { source: "images/back.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
             MouseArea {
                 anchors.fill: parent

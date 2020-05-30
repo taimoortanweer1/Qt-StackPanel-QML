@@ -2,26 +2,31 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 
 Page {
-    width: 1366
-    height: 768
+    width: 1300
+    height: 620
     title: qsTr("Introduction")
     signal requestStackChange(var stack, var properties)
 
     Button {
         id: control
-        text: qsTr("Retour")
         font.pointSize: 15
         width: 250
-        y: parent.height * 0.8
+        y: parent.height - 100
         x: parent.width * 0.5 - 2 * width
+
+        contentItem: Text {
+                   color: control.hovered ? "#000000" : "#ffffff"
+                   text: qsTr("Retour")
+                   font.pointSize: 15
+                   horizontalAlignment: Text.AlignHCenter
+                   verticalAlignment: Text.AlignVCenter
+        }
 
         background: Rectangle {
             anchors.fill: parent
-            color: "#f9c5bd"
-            opacity: enabled ? 1 : 0.3
-            border.color: control.hovered ? "#1dbab4" : "#21be2b"
-            border.width: 1
-            radius: 10
+            color: control.hovered ? "#ffffff" : "transparent"
+            border.color: "#ffffff"
+            border.width: 2
 
 
             MouseArea {
@@ -35,19 +40,24 @@ Page {
 
     Button {
         id: control1
-        text: qsTr("Plus de details")
         font.pointSize: 15
         width: 250
-        y: parent.height * 0.8
+        y: parent.height - 100
         x: parent.width * 0.5 - width / 2
+
+        contentItem: Text {
+                   color: control1.hovered ? "#000000" : "#ffffff"
+                   text: qsTr("Plus de details")
+                   font.pointSize: 15
+                   horizontalAlignment: Text.AlignHCenter
+                   verticalAlignment: Text.AlignVCenter
+        }
 
         background: Rectangle {
             anchors.fill: parent
-            color: "#f9c5bd"
-            opacity: enabled ? 1 : 0.3
-            border.color: control1.hovered ? "#1dbab4" : "#21be2b"
-            border.width: 1
-            radius: 10
+            color: control1.hovered ? "#ffffff" : "transparent"
+            border.color: "#ffffff"
+            border.width: 2
 
 
             MouseArea {
@@ -61,19 +71,24 @@ Page {
 
     Button {
         id: control2
-        text: qsTr("Suivants")
         font.pointSize: 15
         width: 250
-        y: parent.height * 0.8
+        y: parent.height - 100
         x: parent.width * 0.5 + width
+
+        contentItem: Text {
+                   color: control2.hovered ? "#000000" : "#ffffff"
+                   text: qsTr("Suivants")
+                   font.pointSize: 15
+                   horizontalAlignment: Text.AlignHCenter
+                   verticalAlignment: Text.AlignVCenter
+        }
 
         background: Rectangle {
             anchors.fill: parent
-            color: "#f9c5bd"
-            opacity: enabled ? 1 : 0.3
-            border.color: control2.hovered ? "#1dbab4" : "#21be2b"
-            border.width: 1
-            radius: 10
+            color: control2.hovered ? "#ffffff" : "transparent"
+            border.color: "#ffffff"
+            border.width: 2
 
 
             MouseArea {

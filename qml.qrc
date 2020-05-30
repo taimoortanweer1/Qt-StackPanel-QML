@@ -32,5 +32,14 @@
         <file>10_com_avion.qml</file>
         <file>11_com_sol.qml</file>
         <file>images/10.png</file>
+        <file>ButtonCustom.qml</file>
+        <file>8a_amu.qml</file>
+        <file>8b_radiof.qml</file>
+        <file>8c_phraAero.qml</file>
+        <file>images/16.png</file>
+        <file>images/17.png</file>
+        <file>images/18.png</file>
+        <file>images/19.png</file>
+        <file>images/20.png</file>
     </qresource>
 </RCC>
