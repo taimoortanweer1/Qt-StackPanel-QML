@@ -3,8 +3,8 @@ import QtQuick.Controls 2.14
 
 
 Page {
-    width: 1366
-    height: 768
+    width: 1300
+    height: 620
     title: qsTr("Simulation")
     signal requestStackChange(var stack, var properties)
 
@@ -63,7 +63,9 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("11_com_sol.qml", {});
+                   //requestStackChange("11_com_sol.qml", {});
+                   requestStackChange("SimulationSol.qml", {});
+
                 }
             }
         }

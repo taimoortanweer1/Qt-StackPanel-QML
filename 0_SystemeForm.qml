@@ -79,6 +79,6 @@ Page {
 
     background: Rectangle {
         anchors.fill: parent
-        Image { source: "images/0.png"; anchors.fill: parent;  opacity: 1 }
+        Image { source: "/images/0.png"; anchors.fill: parent;  opacity: 1 }
     }
 }

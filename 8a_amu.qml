@@ -65,7 +65,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("8b_radiof.qml", {});
+                   requestStackChange("8b_rf.qml", {});
                 }
             }
         }

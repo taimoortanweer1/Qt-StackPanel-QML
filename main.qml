@@ -88,7 +88,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    stackView.push("12_gest.qml")
+                    stackView.push("8a_amu.qml")
                     drawer.close()
                 }
             }            
@@ -98,7 +98,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    stackView.push("13_bande.qml")
+                    stackView.push("8b_rf.qml")
                     drawer.close()
                 }
             }
@@ -107,7 +107,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    stackView.push("13_bande.qml")
+                    stackView.push("8c_aero.qml")
                     drawer.close()
                 }
             }

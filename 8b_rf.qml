@@ -5,14 +5,14 @@ import QtQuick.Controls 2.14
 Page {
     width: 1300
     height: 620
-    title: qsTr("Introduction")
+    title: qsTr("Bande frequency")
     signal requestStackChange(var stack, var properties)
 
     Button {
         id: control
         font.pointSize: 15
         width: 250
-        y: parent.height - 100
+        y: parent.height - 80
         x: parent.width * 0.5 - 1.5 * width
 
         contentItem: Text {
@@ -30,10 +30,11 @@ Page {
             border.width: 2
 
 
+
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("0_SystemeForm.qml", {});
+                   requestStackChange("8a_amu.qml", {});
                 }
             }
         }
@@ -43,7 +44,7 @@ Page {
         id: control1
         font.pointSize: 15
         width: 250
-        y: parent.height - 100
+        y: parent.height - 80
         x: parent.width * 0.5 + width / 2
 
         contentItem: Text {
@@ -64,7 +65,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("2_Intro-2.qml", {});
+                   requestStackChange("8c_aero.qml", {});
                 }
             }
         }
@@ -72,6 +73,6 @@ Page {
 
     background: Rectangle {
         anchors.fill: parent
-        Image { source: "images/1.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
+        Image { source: "images/16-Copy.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
     }
 }
