@@ -10,17 +10,37 @@ SimulationSolForm {
     property var lineCanvas: [0,0,0,0]
     property var sendto: 1
     property var startSim: false
+    textFieldTX1.onEditingFinished: {
+
+        if(startSim === true)
+        canvas1.sendFunction()
+
+}
+    textFieldTX2.onEditingFinished: {
+
+        if(startSim === true)
+        canvas1.sendFunction()
+
+}
+
+    textFieldTX3.onEditingFinished: {
+
+        if(startSim === true)
+        canvas1.sendFunction()
+
+}
     buttonAide.onClicked: {
 
         requestStackChange("12_aide.qml", {});
     }
 
-    textFieldTX3.onEditingFinished: {
-        canvas1.sendFunction()
 
-}
     buttonDemarr.onToggled: {
-        startSim = true
+
+        if(buttonDemarr.checked)
+            startSim = true
+        else
+            startSim = false
 
 
     }

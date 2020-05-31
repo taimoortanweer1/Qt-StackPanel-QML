@@ -33,7 +33,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("10_com_avion.qml", {});
+                   requestStackChange("SimulationSol.qml", {});
                 }
             }
         }
@@ -64,7 +64,7 @@ Page {
                 anchors.fill: parent
                 onClicked: {
                    //requestStackChange("11_com_sol.qml", {});
-                   requestStackChange("SimulationSol.qml", {});
+
 
                 }
             }
