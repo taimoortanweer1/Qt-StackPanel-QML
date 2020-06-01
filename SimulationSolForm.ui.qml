@@ -239,7 +239,9 @@ Item {
                     width: 59
                     height: 56
                     text: "VHF"
-                    checked: true
+                    autoExclusive: true
+                    checkable: true
+                    checked: false
                 }
 
                 RoundButton {
@@ -249,14 +251,16 @@ Item {
                     width: 58
                     height: 56
                     text: "UHF"
+                    autoExclusive: true
+                    checkable: true
                     checked: false
                 }
             }
 
             Rectangle {
                 id: rectangle2
-                x: 21
-                y: 224
+                x: 8
+                y: 202
                 width: 200
                 height: 200
                 color: "#073685"
@@ -304,10 +308,10 @@ Item {
 
             Rectangle {
                 id: rectangle3
-                x: 497
-                y: 397
+                x: 389
+                y: 510
                 width: 401
-                height: 188
+                height: 102
                 color: "#073685"
                 radius: 20
                 opacity: 0.5
@@ -322,9 +326,9 @@ Item {
 
                 TextField {
                     id: textFieldRX2
-                    x: 17
-                    y: 138
-                    width: 140
+                    x: 188
+                    y: 53
+                    width: 198
                     height: 40
                     text: qsTr("Text Field")
                 }
@@ -341,22 +345,12 @@ Item {
 
                 Label {
                     id: label10
-                    x: 17
-                    y: 112
+                    x: 205
+                    y: 30
                     width: 99
                     height: 20
                     color: "#000000"
                     text: qsTr("Reception")
-                }
-
-                Image {
-                    id: image1
-                    x: 208
-                    y: 44
-                    width: 153
-                    height: 123
-                    fillMode: Image.PreserveAspectFit
-                    source: "images/plane1.png"
                 }
             }
 
@@ -410,11 +404,11 @@ Item {
 
             Rectangle {
                 id: rectangleLED3
-                x: 185
-                y: 61
+                x: 268
+                y: 155
                 width: 26
                 height: 24
-                color: "#ff0000"
+                color: "#000000"
                 radius: 19.5
             }
 
@@ -459,8 +453,8 @@ Item {
 
             Slider {
                 id: sliderAV2
-                x: 724
-                y: 397
+                x: 409
+                y: 472
                 width: 94
                 height: 40
                 from: 10
@@ -473,33 +467,33 @@ Item {
             Label {
                 id: label15
                 x: -16
-                y: 438
+                y: 451
                 height: 21
                 color: "#f9f9f9"
                 text: qsTr("AV3")
                 anchors.left: parent.left
-                anchors.rightMargin: 459
-                anchors.leftMargin: 793
+                anchors.rightMargin: 785
+                anchors.leftMargin: 467
                 anchors.right: parent.right
             }
 
             Label {
                 id: label16
                 x: -14
-                y: 438
+                y: 451
                 height: 21
                 color: "#f9f9f9"
                 text: qsTr("AV1")
                 anchors.left: parent.left
-                anchors.rightMargin: 535
-                anchors.leftMargin: 728
+                anchors.rightMargin: 861
+                anchors.leftMargin: 402
                 anchors.right: parent.right
             }
 
             Slider {
                 id: sliderAV1
-                x: 1156
-                y: 147
+                x: 1150
+                y: 211
                 width: 94
                 height: 40
                 from: 10
@@ -512,46 +506,46 @@ Item {
             Label {
                 id: label17
                 x: -4
-                y: 188
+                y: 252
                 height: 21
                 color: "#f9f9f9"
                 text: qsTr("AV3")
                 anchors.left: parent.left
-                anchors.rightMargin: 39
-                anchors.leftMargin: 1213
+                anchors.rightMargin: 45
+                anchors.leftMargin: 1207
                 anchors.right: parent.right
             }
 
             Label {
                 id: label18
                 x: -2
-                y: 188
+                y: 252
                 height: 21
                 color: "#f9f9f9"
                 text: qsTr("AV2")
                 anchors.left: parent.left
-                anchors.rightMargin: 115
-                anchors.leftMargin: 1148
+                anchors.rightMargin: 121
+                anchors.leftMargin: 1142
                 anchors.right: parent.right
             }
 
             Rectangle {
                 id: rectangleLED2
-                x: 707
-                y: 531
+                x: 753
+                y: 480
                 width: 26
                 height: 24
-                color: "#ff0000"
+                color: "#000000"
                 radius: 19.5
             }
 
             Rectangle {
                 id: rectangleLED1
-                x: 1068
-                y: 254
+                x: 1060
+                y: 164
                 width: 26
                 height: 24
-                color: "#ff0000"
+                color: "#000000"
                 radius: 19.5
             }
 
@@ -582,8 +576,8 @@ Designer {
     D{i:0;height:620;width:1300}D{i:4;anchors_width:69;anchors_x:90}D{i:6;anchors_x:40}
 D{i:12;anchors_width:69;anchors_x:90}D{i:13;anchors_width:69;anchors_x:90}D{i:14;anchors_width:69;anchors_x:90}
 D{i:15;anchors_width:69;anchors_x:90}D{i:16;anchors_width:69;anchors_x:90}D{i:18;anchors_height:56;anchors_width:59;anchors_x:"-8";anchors_y:"-3"}
-D{i:38;anchors_width:69;anchors_x:90}D{i:39;anchors_width:69;anchors_x:90}D{i:41;anchors_width:69;anchors_x:90}
-D{i:42;anchors_width:69;anchors_x:90}D{i:44;anchors_width:69;anchors_x:90}D{i:45;anchors_width:69;anchors_x:90}
+D{i:37;anchors_width:69;anchors_x:90}D{i:38;anchors_width:69;anchors_x:90}D{i:40;anchors_width:69;anchors_x:90}
+D{i:41;anchors_width:69;anchors_x:90}D{i:43;anchors_width:69;anchors_x:90}D{i:44;anchors_width:69;anchors_x:90}
 D{i:2;anchors_height:100;anchors_width:100;anchors_x:452;anchors_y:216}D{i:1;anchors_height:200;anchors_width:200;anchors_x:511;anchors_y:175}
 }
 ##^##*/
