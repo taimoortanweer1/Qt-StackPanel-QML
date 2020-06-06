@@ -3,11 +3,12 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.13
 
 Page {
+    id:comAvion
     width: 1366
     height: 768
     title: qsTr("Communication avion-avion")
-    signal requestStackChange(var stack, var properties)
-
+    signal incPage(var value)
+    signal decPage(var value)
     background: Rectangle {
         anchors.fill: parent
         Image { source: "images/10.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }

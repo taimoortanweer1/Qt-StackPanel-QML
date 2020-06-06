@@ -2,7 +2,9 @@ import QtQuick 2.4
 
 SimulationSolForm {
 
-    signal requestStackChange(var stack, var properties)
+    id:simuSol
+    signal incPage(var value)
+    signal decPage(var value)
 
     property var avion: [0,0,0] //which is the active plane
     property bool power: false //powr of the selector panel
@@ -13,7 +15,21 @@ SimulationSolForm {
     //0x05 one and three exchange
     //0x06 two and three exchange
 
-    property var startSim: false //simulation power button
+    property var startSim: false
+    switchAS.onToggled: {
+
+        if(switchAS.checked == true)
+        {
+            spinBoxActiveF.enabled = false
+            spinBoxStandByF.enabled = true
+
+        }
+        else
+        {
+            spinBoxActiveF.enabled = true
+            spinBoxStandByF.enabled = false
+        }
+} //simulation power button
 
     textFieldTX1.onTextChanged: {
         canvas1.changeLEDAvion1()
@@ -48,7 +64,7 @@ SimulationSolForm {
 
     buttonAide.onClicked: {
 
-        requestStackChange("12_aide.qml", {});
+       simuSol.incPage(1);
     }
 
 

@@ -5,7 +5,8 @@ Page {
     width: 1300
     height: 620
     title: qsTr("Émetteur-Récepteur")
-    signal requestStackChange(var stack, var properties)
+    signal incPage(var value)
+    signal decPage(var value)
 
     background: Rectangle {
         anchors.fill: parent

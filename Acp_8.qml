@@ -3,10 +3,12 @@ import QtQuick.Controls 2.14
 
 
 Page {
+    id: acp
     width: 1300
     height: 620
-    title: qsTr("Unité de gestion audio (AMU)")
-    signal requestStackChange(var stack, var properties)
+    title: qsTr("Panneau de configuration audio (ACP)")
+    signal incPage(var value)
+    signal decPage(var value)
 
     Button {
         id: control
@@ -34,7 +36,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("8_acp.qml", {});
+                   acp.incPage(-1)
                 }
             }
         }
@@ -65,7 +67,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("8b_rf.qml", {});
+                   acp.incPage(1)
                 }
             }
         }
@@ -73,6 +75,6 @@ Page {
 
     background: Rectangle {
         anchors.fill: parent
-        Image { source: "images/11.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
+        Image { source: "images/8.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
     }
 }

@@ -2,10 +2,12 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 
 Page {
+    id:plus
     width: 1300
     height: 620
     title: qsTr("Introduction")
-    signal requestStackChange(var stack, var properties)
+    signal incPage(var value)
+    signal decPage(var value)
 
     Button {
         font.pointSize: 15
@@ -22,7 +24,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("1_Intro.qml", {});
+                   plus.incPage(-1)
                 }
             }
         }

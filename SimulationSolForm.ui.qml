@@ -99,6 +99,7 @@ Item {
                     id: spinBoxStandByF
                     x: 221
                     y: 48
+                    enabled: false
                     anchors.leftMargin: 58
                     from: 80
                     stepSize: 1
@@ -114,6 +115,7 @@ Item {
                     x: 147
                     y: 48
                     text: qsTr("")
+                    checked: false
                 }
 
                 Dial {
@@ -273,7 +275,6 @@ Item {
                     y: 53
                     width: 140
                     height: 40
-                    text: qsTr("Message from Avion 3")
                 }
 
                 TextField {
@@ -282,7 +283,6 @@ Item {
                     y: 138
                     width: 140
                     height: 40
-                    text: qsTr("Text Field")
                 }
 
                 Label {
@@ -321,16 +321,14 @@ Item {
                     y: 53
                     width: 140
                     height: 40
-                    text: qsTr("Message from Avion 2")
                 }
 
                 TextField {
                     id: textFieldRX2
                     x: 188
                     y: 53
-                    width: 198
+                    width: 173
                     height: 40
-                    text: qsTr("Text Field")
                 }
 
                 Label {
@@ -369,7 +367,6 @@ Item {
                     y: 53
                     width: 140
                     height: 40
-                    text: qsTr("Message from Avion 1")
                 }
 
                 TextField {
@@ -378,7 +375,6 @@ Item {
                     y: 138
                     width: 140
                     height: 40
-                    text: qsTr("Text Field")
                 }
 
                 Label {

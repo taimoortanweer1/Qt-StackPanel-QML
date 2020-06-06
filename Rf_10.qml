@@ -1,27 +1,24 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 
-import QtQuick 2.6
-import QtQuick.Controls 2.1
 
 Page {
-
+    id:rf
     width: 1300
     height: 620
-    title: qsTr("System")
-    signal requestStackChange(var stack, var properties)
-
+    title: qsTr("Bande frequency")
+    signal incPage(var value)
+    signal decPage(var value)
     Button {
         id: control
-
         font.pointSize: 15
         width: 250
         y: parent.height - 80
-        x: parent.width * 0.5 - 1.0 * width
+        x: parent.width * 0.5 - 1.5 * width
 
         contentItem: Text {
                    color: control.hovered ? "#000000" : "#ffffff"
-                  text: qsTr("Formation")
+                   text: qsTr("Retour")
                    font.pointSize: 15
                    horizontalAlignment: Text.AlignHCenter
                    verticalAlignment: Text.AlignVCenter
@@ -38,24 +35,22 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    requestStackChange("1_Intro.qml", {});
+                   rf.incPage(-1)
                 }
             }
         }
     }
 
     Button {
-
         id: control1
-
-
+        font.pointSize: 15
         width: 250
         y: parent.height - 80
         x: parent.width * 0.5 + width / 2
 
         contentItem: Text {
                    color: control1.hovered ? "#000000" : "#ffffff"
-                   text: qsTr("Simulation")
+                   text: qsTr("Suivant")
                    font.pointSize: 15
                    horizontalAlignment: Text.AlignHCenter
                    verticalAlignment: Text.AlignVCenter
@@ -71,7 +66,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    requestStackChange("9_simulation.qml", {});
+                   rf.incPage(1)
                 }
             }
         }
@@ -79,6 +74,6 @@ Page {
 
     background: Rectangle {
         anchors.fill: parent
-        Image { source: "/images/0.png"; anchors.fill: parent;  opacity: 1 }
+        Image { source: "images/16-Copy.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
     }
 }

@@ -20,5 +20,8 @@
         <file>images/11.png</file>
         <file>images/Home.png</file>
         <file>images/plane1.png</file>
+        <file>images/formationImage.png</file>
+        <file>images/simulationImage.png</file>
+        <file>images/back.png</file>
     </qresource>
 </RCC>

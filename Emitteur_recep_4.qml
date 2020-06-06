@@ -2,17 +2,20 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 
 Page {
+
+    id: emit_recep
     width: 1300
     height: 620
-    title: qsTr("Introduction")
-    signal requestStackChange(var stack, var properties)
+    title: qsTr("Émetteur-Récepteur")
+    signal incPage(var value)
+    signal decPage(var value)
 
     Button {
-        id: control
+        id: control        
         font.pointSize: 15
         width: 250
         y: parent.height - 100
-        x: parent.width * 0.5 - 2 * width
+        x: parent.width * 0.5 - 1.5 * width
 
         contentItem: Text {
                    color: control.hovered ? "#000000" : "#ffffff"
@@ -32,7 +35,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("1_Intro.qml", {});
+                emit_recep.incPage(-2)
                 }
             }
         }
@@ -43,11 +46,11 @@ Page {
         font.pointSize: 15
         width: 250
         y: parent.height - 100
-        x: parent.width * 0.5 - width / 2
+        x: parent.width * 0.5 + width / 2
 
         contentItem: Text {
                    color: control1.hovered ? "#000000" : "#ffffff"
-                   text: qsTr("Plus de details")
+                   text: qsTr("Suivant")
                    font.pointSize: 15
                    horizontalAlignment: Text.AlignHCenter
                    verticalAlignment: Text.AlignVCenter
@@ -60,10 +63,11 @@ Page {
             border.width: 2
 
 
+
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("3_Intro-3.qml", {});
+                   emit_recep.incPage(3)
                 }
             }
         }
@@ -73,12 +77,12 @@ Page {
         id: control2
         font.pointSize: 15
         width: 250
-        y: parent.height - 100
-        x: parent.width * 0.5 + width
+        y: parent.height * 0.5 - height
+        x: parent.width - 1.5 * width
 
         contentItem: Text {
                    color: control2.hovered ? "#000000" : "#ffffff"
-                   text: qsTr("Suivants")
+                   text: qsTr("Emitteur")
                    font.pointSize: 15
                    horizontalAlignment: Text.AlignHCenter
                    verticalAlignment: Text.AlignVCenter
@@ -91,17 +95,49 @@ Page {
             border.width: 2
 
 
+
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("4_emitteur-recep.qml", {});
+                   emit_recep.incPage(1)
                 }
             }
         }
     }
 
+    Button {
+        id: control3
+        font.pointSize: 15
+        width: 250
+        y: parent.height * 0.5 + height
+        x: parent.width - 1.5 * width
+
+
+        contentItem: Text {
+                   color: control3.hovered ? "#000000" : "#ffffff"
+                   text: qsTr("Recepteur")
+                   font.pointSize: 15
+                   horizontalAlignment: Text.AlignHCenter
+                   verticalAlignment: Text.AlignVCenter
+        }
+
+        background: Rectangle {
+            anchors.fill: parent
+            color: control3.hovered ? "#ffffff" : "transparent"
+            border.color: "#ffffff"
+            border.width: 2
+
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                   emit_recep.incPage(2)
+                }
+            }
+        }
+    }
     background: Rectangle {
         anchors.fill: parent
-        Image { source: "images/2.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
+        Image { source: "images/4.png"; fillMode:Image.Stretch; anchors.fill: parent;  opacity: 1 }
     }
 }

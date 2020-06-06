@@ -1,19 +1,20 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 
-
 Page {
+    id: intro2
     width: 1300
     height: 620
     title: qsTr("Introduction")
-    signal requestStackChange(var stack, var properties)
+    signal incPage(var value)
+    signal decPage(var value)
 
     Button {
         id: control
         font.pointSize: 15
         width: 250
         y: parent.height - 100
-        x: parent.width * 0.5 - 1.5 * width
+        x: parent.width * 0.5 - 2 * width
 
         contentItem: Text {
                    color: control.hovered ? "#000000" : "#ffffff"
@@ -33,7 +34,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("0_SystemeForm.qml", {});
+                   intro2.incPage(-1)
                 }
             }
         }
@@ -44,11 +45,11 @@ Page {
         font.pointSize: 15
         width: 250
         y: parent.height - 100
-        x: parent.width * 0.5 + width / 2
+        x: parent.width * 0.5 - width / 2
 
         contentItem: Text {
                    color: control1.hovered ? "#000000" : "#ffffff"
-                   text: qsTr("Suivant")
+                   text: qsTr("Plus de details")
                    font.pointSize: 15
                    horizontalAlignment: Text.AlignHCenter
                    verticalAlignment: Text.AlignVCenter
@@ -64,7 +65,38 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("2_Intro-2.qml", {});
+                   intro2.incPage(1)
+                }
+            }
+        }
+    }
+
+    Button {
+        id: control2
+        font.pointSize: 15
+        width: 250
+        y: parent.height - 100
+        x: parent.width * 0.5 + width
+
+        contentItem: Text {
+                   color: control2.hovered ? "#000000" : "#ffffff"
+                   text: qsTr("Suivants")
+                   font.pointSize: 15
+                   horizontalAlignment: Text.AlignHCenter
+                   verticalAlignment: Text.AlignVCenter
+        }
+
+        background: Rectangle {
+            anchors.fill: parent
+            color: control2.hovered ? "#ffffff" : "transparent"
+            border.color: "#ffffff"
+            border.width: 2
+
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                   intro2.incPage(2)//logical increment + 1
                 }
             }
         }
@@ -72,6 +104,6 @@ Page {
 
     background: Rectangle {
         anchors.fill: parent
-        Image { source: "images/1.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
+        Image { source: "images/2.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
     }
 }

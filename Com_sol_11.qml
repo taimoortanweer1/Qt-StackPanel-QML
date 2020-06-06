@@ -6,8 +6,8 @@ Page {
     width: 1366
     height: 768
     title: qsTr("Communication avion-sol")
-    signal requestStackChange(var stack, var properties)
-
+    signal incPage(var value)
+    signal decPage(var value)
     background: Rectangle {
         anchors.fill: parent
         Image { source: "images/10.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }

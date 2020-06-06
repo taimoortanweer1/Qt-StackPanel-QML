@@ -1,23 +1,29 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
 
+import QtQuick 2.6
+import QtQuick.Controls 2.1
 
 Page {
+
+
     width: 1300
     height: 620
-    title: qsTr("Bande frequency")
-    signal requestStackChange(var stack, var properties)
+    title: qsTr("System")
+    signal incPage(var value)
+    signal decPage(var value)
 
     Button {
         id: control
+
         font.pointSize: 15
         width: 250
         y: parent.height - 80
-        x: parent.width * 0.5 - 1.5 * width
+        x: parent.width * 0.5 - 1.0 * width
 
         contentItem: Text {
                    color: control.hovered ? "#000000" : "#ffffff"
-                   text: qsTr("Retour")
+                  text: qsTr("Formation")
                    font.pointSize: 15
                    horizontalAlignment: Text.AlignHCenter
                    verticalAlignment: Text.AlignVCenter
@@ -34,22 +40,23 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("8a_amu.qml", {});
+                    incPage(1)
                 }
             }
         }
     }
 
     Button {
+
         id: control1
-        font.pointSize: 15
+
         width: 250
         y: parent.height - 80
         x: parent.width * 0.5 + width / 2
 
         contentItem: Text {
                    color: control1.hovered ? "#000000" : "#ffffff"
-                   text: qsTr("Suivant")
+                   text: qsTr("Simulation")
                    font.pointSize: 15
                    horizontalAlignment: Text.AlignHCenter
                    verticalAlignment: Text.AlignVCenter
@@ -65,7 +72,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("8c_aero.qml", {});
+                    requestStackChange("9_simulation.qml", {});
                 }
             }
         }
@@ -73,6 +80,6 @@ Page {
 
     background: Rectangle {
         anchors.fill: parent
-        Image { source: "images/16-Copy.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
+        Image { source: "/images/0.png"; anchors.fill: parent;  opacity: 1 }
     }
 }

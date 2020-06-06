@@ -3,11 +3,12 @@ import QtQuick.Controls 2.14
 
 
 Page {
+    id:simu
     width: 1300
     height: 620
     title: qsTr("Simulation")
-    signal requestStackChange(var stack, var properties)
-
+    signal incPage(var value)
+    signal decPage(var value)
     Button {
         id: control
         font.pointSize: 13
@@ -33,7 +34,8 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("SimulationSol.qml", {});
+
+                   simu.incPage(1)
                 }
             }
         }
@@ -63,7 +65,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   //requestStackChange("11_com_sol.qml", {});
+                   simu.incPage(2)
 
 
                 }

@@ -3,11 +3,12 @@ import QtQuick.Controls 2.14
 
 
 Page {
+    id:aero
     width: 1300
     height: 620
-    title: qsTr("Panneau de commande radio (RMP)")
-    signal requestStackChange(var stack, var properties)
-
+    title: qsTr("Phraseologie Aeronotique")
+    signal incPage(var value)
+    signal decPage(var value)
     Button {
         id: control
         font.pointSize: 15
@@ -30,10 +31,11 @@ Page {
             border.width: 2
 
 
+
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("4_emitteur-recep.qml", {});
+                   aero.acp.incPage(-1)
                 }
             }
         }
@@ -64,7 +66,9 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("8_acp.qml", {});
+                   aero.acp.incPage(1)
+
+
                 }
             }
         }
@@ -72,6 +76,6 @@ Page {
 
     background: Rectangle {
         anchors.fill: parent
-        Image { source: "images/7.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
+        Image { source: "images/17-Copy.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
     }
 }

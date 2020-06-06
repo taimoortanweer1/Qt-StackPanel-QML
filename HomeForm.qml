@@ -2,11 +2,17 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Controls.Styles 1.4
 
+
 Page {
+
+    id: home
     width: 1300
     height: 620
     title: qsTr("Acceuil")
-    signal requestStackChange(var stack, var properties)
+    signal incPage(var value)
+    signal decPage(var value)
+
+
     Button {
         id: control
         text: qsTr("Découvrir le système")
@@ -30,7 +36,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("0_SystemeForm.qml", {});
+                    home.incPage(1)
                 }
             }
         }

@@ -1,26 +1,26 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>0_SystemeForm.qml</file>
-        <file>1_Intro.qml</file>
+        <file>Intro_1.qml</file>
         <file>qtquickcontrols2.conf</file>
-        <file>2_Intro-2.qml</file>
+        <file>Intro_2.qml</file>
         <file>HomeForm.qml</file>
-        <file>3_Intro-3.qml</file>
-        <file>4_emitteur-recep.qml</file>
-        <file>5_emitteur.qml</file>
-        <file>6_recepteur.qml</file>
-        <file>7_rmp.qml</file>
-        <file>8_acp.qml</file>
-        <file>9_simulation.qml</file>
-        <file>10_com_avion.qml</file>
-        <file>11_com_sol.qml</file>
+        <file>Intro_3.qml</file>
+        <file>Emitteur_5.qml</file>
+        <file>Recepteur_6.qml</file>
+        <file>Rmp_7.qml</file>
+        <file>Acp_8.qml</file>
+        <file>Simulation_12.qml</file>
+        <file>Com_avion_10.qml</file>
+        <file>Com_sol_11.qml</file>
         <file>ButtonCustom.qml</file>
-        <file>8a_amu.qml</file>
-        <file>8b_rf.qml</file>
-        <file>8c_aero.qml</file>
+        <file>Amu_9.qml</file>
+        <file>Rf_10.qml</file>
+        <file>Aero_11.qml</file>
         <file>SimulationSol.qml</file>
         <file>SimulationSolForm.ui.qml</file>
-        <file>12_aide.qml</file>
+        <file>Aide_12.qml</file>
+        <file>SystemeForm_0.qml</file>
+        <file>Emitteur_recep_4.qml</file>
     </qresource>
 </RCC>

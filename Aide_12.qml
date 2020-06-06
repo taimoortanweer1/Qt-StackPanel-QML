@@ -3,11 +3,12 @@ import QtQuick.Controls 2.14
 
 
 Page {
+    id: aide
     width: 1300
     height: 620
     title: qsTr("Aide")
-    signal requestStackChange(var stack, var properties)
-
+    signal incPage(var value)
+    signal decPage(var value)
     Button {
         id: control
         font.pointSize: 15
@@ -34,7 +35,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   requestStackChange("SimulationSol.qml", {});
+                   aide.incPage(-1)
                 }
             }
         }
