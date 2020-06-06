@@ -72,7 +72,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    requestStackChange("9_simulation.qml", {});
+                    incPage(12)
                 }
             }
         }

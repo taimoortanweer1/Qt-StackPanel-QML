@@ -5,6 +5,8 @@ import QtQuick.Controls 2.13
 Item {
     width: 1300
     height: 620
+    property alias rectangle1: rectangle1
+
     property alias buttonAide: buttonAide
     property alias textFieldRX2: textFieldRX2
     property alias sliderAV2: sliderAV2
@@ -82,6 +84,7 @@ Item {
                 SpinBox {
                     id: spinBoxActiveF
                     y: 48
+                    enabled: false
                     anchors.right: parent.right
                     anchors.rightMargin: 253
                     anchors.left: parent.left
@@ -115,6 +118,7 @@ Item {
                     x: 147
                     y: 48
                     text: qsTr("")
+                    enabled: false
                     checked: false
                 }
 
@@ -124,6 +128,7 @@ Item {
                     y: 105
                     width: 73
                     height: 56
+                    enabled: false
                     anchors.right: parent.right
                     anchors.rightMargin: 15
                     inputMode: Dial.Horizontal
@@ -139,7 +144,7 @@ Item {
                     y: 220
                     width: 118
                     height: 40
-                    text: qsTr("On/Off")
+                    text: qsTr("Off/On")
                     font.pointSize: 9
                     font.bold: true
                     checked: false
@@ -153,6 +158,7 @@ Item {
                     y: 120
                     width: 94
                     height: 40
+                    enabled: false
                     stepSize: 5
                     to: 0
                     from: 10
@@ -241,6 +247,7 @@ Item {
                     width: 59
                     height: 56
                     text: "VHF"
+                    enabled: false
                     autoExclusive: true
                     checkable: true
                     checked: false
@@ -253,6 +260,7 @@ Item {
                     width: 58
                     height: 56
                     text: "UHF"
+                    enabled: false
                     autoExclusive: true
                     checkable: true
                     checked: false

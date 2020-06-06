@@ -66,7 +66,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   aero.acp.incPage(1)
+                   aero.incPage(1)
 
 
                 }

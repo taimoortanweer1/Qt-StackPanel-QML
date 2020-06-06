@@ -71,9 +71,29 @@ SimulationSolForm {
     buttonDemarr.onToggled: {
 
         if(buttonDemarr.checked)
+        {
             startSim = true
+            //sliderAV1.enabled = true
+            //sliderAV2.enabled = true
+            //sliderAV3.enabled = true
+
+        }
         else
+        {
             startSim = false
+            textFieldRX1.text = ""
+            textFieldRX2.text = ""
+            textFieldRX3.text = ""
+            textFieldTX1.text = ""
+            textFieldTX2.text = ""
+            textFieldTX3.text = ""
+//            sliderAV1.enabled = false
+//            sliderAV2.enabled = false
+//            sliderAV3.enabled = false
+            rectangleLED1.color = "black"
+            rectangleLED2.color = "black"
+            rectangleLED3.color = "black"
+        }
 
 
     }
@@ -217,9 +237,28 @@ SimulationSolForm {
 
     switchOnOff.onToggled: {
         if(switchOnOff.checked)
-        { power = true}
+        { power = true
+          spinBoxActiveF.enabled = true
+          spinBoxStandByF.enabled = true
+          switchAS.enabled = true
+          roundButtonUHF.enabled = true
+          roundButtonVHF.enabled = true
+          dialvolume.enabled = true
+          sliderAVSelect.enabled = true
+
+        }
         else
-        {power = false}
+        {
+            power = false
+
+            spinBoxActiveF.enabled = false
+            spinBoxStandByF.enabled = false
+            switchAS.enabled = false
+            roundButtonUHF.enabled = false
+            roundButtonVHF.enabled = false
+            dialvolume.enabled = false
+            sliderAVSelect.enabled = false
+        }
 
     }
 
@@ -328,6 +367,11 @@ SimulationSolForm {
                 rectangleLED1.color = "#FF0000"
                 rectangleLED2.color = "#00FF00"
                 rectangleLED3.color = "#00FF00"
+
+                sliderAV1.enabled = true
+                sliderAV2.enabled = false
+                sliderAV3.enabled = false
+
             }
 
 
@@ -341,6 +385,10 @@ SimulationSolForm {
                 rectangleLED1.color = "#00FF00"
                 rectangleLED2.color = "#FF0000"
                 rectangleLED3.color = "#00FF00"
+
+                sliderAV2.enabled = true
+                sliderAV1.enabled = false
+                sliderAV3.enabled = false
             }
 
             if(sliderAVSelect.value == 10)
@@ -352,6 +400,10 @@ SimulationSolForm {
                 rectangleLED1.color = "#00FF00"
                 rectangleLED2.color = "#00FF00"
                 rectangleLED3.color = "#FF0000"
+
+                sliderAV3.enabled = true
+                sliderAV1.enabled = false
+                sliderAV2.enabled = false
             }
         }
         canvas1.clear_canvas()

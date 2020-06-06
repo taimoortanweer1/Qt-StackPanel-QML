@@ -28,7 +28,7 @@ ApplicationWindow {
             }
         }
         Label {
-            //text: view.currentIndex
+            //text: view.currentIndex.t
             anchors.centerIn: parent
         }
     }
@@ -58,7 +58,7 @@ ApplicationWindow {
 
                 width: parent.width
                 onClicked: {
-                    view.setCurrentIndex(2)
+                    stackView.push("0_SystemeForm.qml")
 
                     drawer.close()
                 }
@@ -69,7 +69,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    view.setCurrentIndex(2)
+                    stackView.push("1_Intro.qml")
                     drawer.close()
                 }
             }
@@ -79,7 +79,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    view.setCurrentIndex(6)
+                    stackView.push("4_emitteur-recep.qml")
                     drawer.close()
                 }
             }
@@ -89,8 +89,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    view.setCurrentIndex(8)
-
+                    stackView.push("7_rmp.qml")
                     drawer.close()
                 }
             }
@@ -99,8 +98,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    view.setCurrentIndex(9)
-
+                    stackView.push("8_acp.qml")
                     drawer.close()
                 }
             }
@@ -109,8 +107,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    view.setCurrentIndex(10)
-
+                    stackView.push("8a_amu.qml")
                     drawer.close()
                 }
             }
@@ -120,7 +117,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    view.setCurrentIndex(11)
+                    stackView.push("8b_rf.qml")
                     drawer.close()
                 }
             }
@@ -129,7 +126,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    view.setCurrentIndex(12)
+                    stackView.push("8c_aero.qml")
                     drawer.close()
                 }
             }
@@ -147,13 +144,13 @@ ApplicationWindow {
                 }
 
                 Text {
-                    text: qsTr("Simulation")
+                    text: qsTr("Formation")
                     x: 25
                     y: 13
                 }
                 width: parent.width
                 onClicked: {
-                    view.setCurrentIndex(13)
+                    stackView.push("9_simulation.qml")
                     drawer.close()
                 }
 
@@ -164,7 +161,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    view.setCurrentIndex(14)
+                    stackView.push("SimulationSol.qml")
                     drawer.close()
                 }
             }
@@ -199,14 +196,6 @@ ApplicationWindow {
         anchors.top: parent.top
 
         onCurrentIndexChanged: {
-
-            var title = ["Acceil","Systeme","Introduction","Introduction","Introduction","Introduction",
-                         "Émetteur-Récepteur","Émetteur-Récepteur","Panneau de commande radio (RMP)",
-                         "Panneau de configuration audio (ACP)","Unité de gestion audio (AMU)","Bande frequency","Phraseologie Aeronotique",
-                         "Simulation",
-                         "Communication avion-avion","Aide"]
-
-            window.title = title[view.currentIndex]
 //            if(view.currentIndex === 3 || view.currentIndex === 4)
 //            {
 
@@ -225,10 +214,18 @@ ApplicationWindow {
         }
         //home
         Item {
+
+
+            Loader {
+                // index 0
+                id: one
+                source: "HomeForm.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+
+            }
             HomeForm{
                 id: home
-
-
                 onIncPage: {
 
                     view.receive(value)
@@ -240,13 +237,13 @@ ApplicationWindow {
         Item{
 
             id: two
-//            Loader {
-//                // index 1
-//                id: pagetwo
-//                source: "SystemeForm_0.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            Loader {
+                // index 1
+                id: pagetwo
+                source: "SystemeForm_0.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+            }
 
             SystemeForm_0{
                 id: systemeForm
@@ -260,13 +257,13 @@ ApplicationWindow {
         //1-intro1
         Item{
             id: three
-//            Loader {
-//                // index 2
-//                id: pagethree
-//                source: "Intro_1.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            Loader {
+                // index 2
+                id: pagethree
+                source: "Intro_1.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+            }
 
             Intro_1 {
                 id: intro1
@@ -277,13 +274,13 @@ ApplicationWindow {
         //2-intro2
         Item{
             id: four
-//            Loader {
-//                // index 3
-//                id: pagefour
-//                source: "Intro_2.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            Loader {
+                // index 3
+                id: pagefour
+                source: "Intro_2.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+            }
 
             Intro_2{
                 id: intro2
@@ -306,13 +303,13 @@ ApplicationWindow {
         //3-intro3 plus
         Item{
             id: five
-//            Loader {
-//                // index 4
-//                id: pagefive
-//                source: "Intro_3.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            Loader {
+                // index 4
+                id: pagefive
+                source: "Intro_3.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+            }
 
             Intro_3{
                 id: intro3
@@ -327,13 +324,13 @@ ApplicationWindow {
         //Emitteur-recep_4
         Item{
             id: six
-//            Loader {
-//                // index 5
-//                id: pageSix
-//                source: "Emitteur_recep_4.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            Loader {
+                // index 5
+                id: pageSix
+                source: "Emitteur_recep_4.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+            }
 
             Emitteur_recep_4 {
                 id:emiterRecForm4
@@ -346,13 +343,13 @@ ApplicationWindow {
 
         Item{
             id: seven
-//            Loader {
-//                // index 6
-//                id: pageSeven
-//                source: "Emitteur_5.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            Loader {
+                // index 6
+                id: pageSeven
+                source: "Emitteur_5.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+            }
 
             Emitteur_5 {
                 id:emiterForm5
@@ -365,13 +362,13 @@ ApplicationWindow {
 
         Item{
             id: eight
-//            Loader {
-//                // index 7
-//                id: pageEight
-//                source: "Recepteur_6.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            Loader {
+                // index 7
+                id: pageEight
+                source: "Recepteur_6.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+            }
 
             Recepteur_6 {
                 id:emiterForm6
@@ -384,13 +381,13 @@ ApplicationWindow {
 
         Item{
             id: nine
-//            Loader {
-//                // index 8
-//                id: pageNine
-//                source: "Rmp_7.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            Loader {
+                // index 8
+                id: pageNine
+                source: "Rmp_7.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+            }
 
             Rmp_7 {
                 id:rmp7
@@ -403,13 +400,13 @@ ApplicationWindow {
 
         Item{
             id: ten
-//            Loader {
-//                // index 9
-//                id: pageTen
-//                source: "Acp_8.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            Loader {
+                // index 9
+                id: pageTen
+                source: "Acp_8.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+            }
 
             Acp_8 {
                 id:acp8
@@ -422,13 +419,13 @@ ApplicationWindow {
 
         Item{
             id: eleven
-//            Loader {
-//                // index 9
-//                id: pageEleven
-//                source: "Amu_9.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            Loader {
+                // index 9
+                id: pageEleven
+                source: "Amu_9.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+            }
 
             Amu_9 {
                 id:amu9
@@ -441,13 +438,13 @@ ApplicationWindow {
 
         Item{
             id: twelve
-//            Loader {
-//                // index 9
-//                id: pageTwelve
-//                source: "Rf_10.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            Loader {
+                // index 9
+                id: pageTwelve
+                source: "Rf_10.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+            }
 
             Rf_10 {
                 id:rf10
@@ -459,13 +456,13 @@ ApplicationWindow {
         }
         Item{
             id: thirteen
-//            Loader {
-//                // index 9
-//                id: pageThirteen
-//                source: "Aero_11.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            Loader {
+                // index 9
+                id: pageThirteen
+                source: "Aero_11.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+            }
 
             Aero_11 {
                 id:aero11
@@ -478,13 +475,13 @@ ApplicationWindow {
 
         Item{
             id: forteen
-//            Loader {
-//                // index 9
-//                id: pageforteen
-//                source: "Simulation_12.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            Loader {
+                // index 9
+                id: pageforteen
+                source: "Simulation_12.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+            }
 
             Simulation_12 {
                 id:simu12
@@ -497,13 +494,13 @@ ApplicationWindow {
 
         Item{
             id: fifteen
-//            Loader {
-//                // index 9
-//                id: pagefifteen
-//                source: "SimulationSol.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            Loader {
+                // index 9
+                id: pagefifteen
+                source: "SimulationSol.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+            }
 
             SimulationSol {
                 id:simuSol
@@ -515,13 +512,13 @@ ApplicationWindow {
         }
         Item{
             id: sixteen
-//            Loader {
-//                // index 9
-//                id: pageSixteen
-//                source: "Aide_12.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            Loader {
+                // index 9
+                id: pageSixteen
+                source: "Aide_12.qml"
+                anchors.fill: parent
+                anchors.top: parent.top
+            }
 
             Aide_12 {
                 id:aide12
@@ -602,19 +599,6 @@ ApplicationWindow {
         anchors.bottom: view.bottom
         anchors.horizontalCenter: parent.horizontalCenter
     }
-
-
-    Repeater {
-              model: 3
-              Loader {
-                  active: SwipeView.isCurrentItem || SwipeView.isNextItem || SwipeView.isPreviousItem
-                  sourceComponent: Text {
-                      text: index
-                      Component.onCompleted: console.log("created:", index)
-                      Component.onDestruction: console.log("destroyed:", index)
-                  }
-              }
-          }
 
 
 
