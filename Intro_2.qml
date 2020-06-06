@@ -8,6 +8,7 @@ Page {
     title: qsTr("Introduction")
     signal incPage(var value)
     signal decPage(var value)
+    signal changeOrientation(var value)
 
     Button {
         id: control
@@ -34,6 +35,8 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
+
+                   intro2.changeOrientation(0)
                    intro2.incPage(-1)
                 }
             }
@@ -65,6 +68,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
+                   intro2.changeOrientation(1)
                    intro2.incPage(1)
                 }
             }
@@ -96,6 +100,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
+                   intro2.changeOrientation(0)
                    intro2.incPage(2)//logical increment + 1
                 }
             }

@@ -11,6 +11,8 @@ ApplicationWindow {
     minimumHeight: 650
     minimumWidth:  1300
     title: qsTr("Acceuil")
+
+    property var reqIndex : -1
     header: ToolBar {
         contentHeight: toolButton.implicitHeight
 
@@ -198,6 +200,8 @@ ApplicationWindow {
         anchors.fill: parent
         anchors.top: parent.top
 
+
+
         onCurrentIndexChanged: {
 
             var title = ["Acceil","Systeme","Introduction","Introduction","Introduction","Introduction",
@@ -207,20 +211,22 @@ ApplicationWindow {
                          "Communication avion-avion","Aide"]
 
             window.title = title[view.currentIndex]
+
 //            if(view.currentIndex === 3 || view.currentIndex === 4)
 //            {
-
-//                  view.orientation = Qt.Vertical
-
+//                view.orientation = Qt.Vertical
+//                console.log("Required Index " + reqIndex + "/n")
 //            }
 
 //            else
 //            {
 //                view.orientation = Qt.Horizontal
+//                console.log("Required Index " + reqIndex + "/n")
+
 //            }
 
 
-            console.log("After Index Changed " + view.currentIndex + "/n")
+            console.log("After Index Changed " + view.currentIndex)
 
         }
         //home
@@ -240,13 +246,13 @@ ApplicationWindow {
         Item{
 
             id: two
-//            Loader {
-//                // index 1
-//                id: pagetwo
-//                source: "SystemeForm_0.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            //            Loader {
+            //                // index 1
+            //                id: pagetwo
+            //                source: "SystemeForm_0.qml"
+            //                anchors.fill: parent
+            //                anchors.top: parent.top
+            //            }
 
             SystemeForm_0{
                 id: systemeForm
@@ -260,16 +266,18 @@ ApplicationWindow {
         //1-intro1
         Item{
             id: three
-//            Loader {
-//                // index 2
-//                id: pagethree
-//                source: "Intro_1.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            //            Loader {
+            //                // index 2
+            //                id: pagethree
+            //                source: "Intro_1.qml"
+            //                anchors.fill: parent
+            //                anchors.top: parent.top
+            //            }
 
             Intro_1 {
                 id: intro1
+
+
 
             }
         }
@@ -277,42 +285,49 @@ ApplicationWindow {
         //2-intro2
         Item{
             id: four
-//            Loader {
-//                // index 3
-//                id: pagefour
-//                source: "Intro_2.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            //            Loader {
+            //                // index 3
+            //                id: pagefour
+            //                source: "Intro_2.qml"
+            //                anchors.fill: parent
+            //                anchors.top: parent.top
+            //            }
 
             Intro_2{
                 id: intro2
 
                 onIncPage: {
 
+
                     console.log("Button event  = " + view.currentIndex)
-                    //view.setOrientation(value)
+
+
                     view.receive(value)
                     console.log("Button event  = " + view.currentIndex)
 
 
                 }
+                onChangeOrientation : {
 
+                    view.setOrientation(value)
+                    console.log("Current Orientation = " + view.orientation.toString())
+                    view.delay(300);
 
+                }
             }
-
         }
+
 
         //3-intro3 plus
         Item{
             id: five
-//            Loader {
-//                // index 4
-//                id: pagefive
-//                source: "Intro_3.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            //            Loader {
+            //                // index 4
+            //                id: pagefive
+            //                source: "Intro_3.qml"
+            //                anchors.fill: parent
+            //                anchors.top: parent.top
+            //            }
 
             Intro_3{
                 id: intro3
@@ -327,13 +342,13 @@ ApplicationWindow {
         //Emitteur-recep_4
         Item{
             id: six
-//            Loader {
-//                // index 5
-//                id: pageSix
-//                source: "Emitteur_recep_4.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            //            Loader {
+            //                // index 5
+            //                id: pageSix
+            //                source: "Emitteur_recep_4.qml"
+            //                anchors.fill: parent
+            //                anchors.top: parent.top
+            //            }
 
             Emitteur_recep_4 {
                 id:emiterRecForm4
@@ -346,13 +361,13 @@ ApplicationWindow {
 
         Item{
             id: seven
-//            Loader {
-//                // index 6
-//                id: pageSeven
-//                source: "Emitteur_5.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            //            Loader {
+            //                // index 6
+            //                id: pageSeven
+            //                source: "Emitteur_5.qml"
+            //                anchors.fill: parent
+            //                anchors.top: parent.top
+            //            }
 
             Emitteur_5 {
                 id:emiterForm5
@@ -365,13 +380,13 @@ ApplicationWindow {
 
         Item{
             id: eight
-//            Loader {
-//                // index 7
-//                id: pageEight
-//                source: "Recepteur_6.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            //            Loader {
+            //                // index 7
+            //                id: pageEight
+            //                source: "Recepteur_6.qml"
+            //                anchors.fill: parent
+            //                anchors.top: parent.top
+            //            }
 
             Recepteur_6 {
                 id:emiterForm6
@@ -384,13 +399,13 @@ ApplicationWindow {
 
         Item{
             id: nine
-//            Loader {
-//                // index 8
-//                id: pageNine
-//                source: "Rmp_7.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            //            Loader {
+            //                // index 8
+            //                id: pageNine
+            //                source: "Rmp_7.qml"
+            //                anchors.fill: parent
+            //                anchors.top: parent.top
+            //            }
 
             Rmp_7 {
                 id:rmp7
@@ -403,13 +418,13 @@ ApplicationWindow {
 
         Item{
             id: ten
-//            Loader {
-//                // index 9
-//                id: pageTen
-//                source: "Acp_8.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            //            Loader {
+            //                // index 9
+            //                id: pageTen
+            //                source: "Acp_8.qml"
+            //                anchors.fill: parent
+            //                anchors.top: parent.top
+            //            }
 
             Acp_8 {
                 id:acp8
@@ -422,13 +437,13 @@ ApplicationWindow {
 
         Item{
             id: eleven
-//            Loader {
-//                // index 9
-//                id: pageEleven
-//                source: "Amu_9.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            //            Loader {
+            //                // index 9
+            //                id: pageEleven
+            //                source: "Amu_9.qml"
+            //                anchors.fill: parent
+            //                anchors.top: parent.top
+            //            }
 
             Amu_9 {
                 id:amu9
@@ -441,13 +456,13 @@ ApplicationWindow {
 
         Item{
             id: twelve
-//            Loader {
-//                // index 9
-//                id: pageTwelve
-//                source: "Rf_10.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            //            Loader {
+            //                // index 9
+            //                id: pageTwelve
+            //                source: "Rf_10.qml"
+            //                anchors.fill: parent
+            //                anchors.top: parent.top
+            //            }
 
             Rf_10 {
                 id:rf10
@@ -459,13 +474,13 @@ ApplicationWindow {
         }
         Item{
             id: thirteen
-//            Loader {
-//                // index 9
-//                id: pageThirteen
-//                source: "Aero_11.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            //            Loader {
+            //                // index 9
+            //                id: pageThirteen
+            //                source: "Aero_11.qml"
+            //                anchors.fill: parent
+            //                anchors.top: parent.top
+            //            }
 
             Aero_11 {
                 id:aero11
@@ -478,13 +493,13 @@ ApplicationWindow {
 
         Item{
             id: forteen
-//            Loader {
-//                // index 9
-//                id: pageforteen
-//                source: "Simulation_12.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            //            Loader {
+            //                // index 9
+            //                id: pageforteen
+            //                source: "Simulation_12.qml"
+            //                anchors.fill: parent
+            //                anchors.top: parent.top
+            //            }
 
             Simulation_12 {
                 id:simu12
@@ -497,13 +512,13 @@ ApplicationWindow {
 
         Item{
             id: fifteen
-//            Loader {
-//                // index 9
-//                id: pagefifteen
-//                source: "SimulationSol.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            //            Loader {
+            //                // index 9
+            //                id: pagefifteen
+            //                source: "SimulationSol.qml"
+            //                anchors.fill: parent
+            //                anchors.top: parent.top
+            //            }
 
             SimulationSol {
                 id:simuSol
@@ -515,13 +530,13 @@ ApplicationWindow {
         }
         Item{
             id: sixteen
-//            Loader {
-//                // index 9
-//                id: pageSixteen
-//                source: "Aide_12.qml"
-//                anchors.fill: parent
-//                anchors.top: parent.top
-//            }
+            //            Loader {
+            //                // index 9
+            //                id: pageSixteen
+            //                source: "Aide_12.qml"
+            //                anchors.fill: parent
+            //                anchors.top: parent.top
+            //            }
 
             Aide_12 {
                 id:aide12
@@ -541,29 +556,18 @@ ApplicationWindow {
 
         function setStaticIncrement(value)
         {
-                view.setCurrentIndex(value)
+            view.setCurrentIndex(value)
         }
 
         function setOrientation(value)
         {
             if(value === 1)
             {
-                var h = window.height
-                var w = window.width
-
-                window.setHeight(w)
-                window.setWidth(h)
-
                 view.orientation = Qt.Vertical
             }
 
-            else if(value === -1 || value === 2)
+            else if(value === 0 )
             {
-                var h = window.height
-                var w = window.width
-
-                window.setHeight(w)
-                window.setWidth(h)
                 view.orientation = Qt.Horizontal
 
             }
@@ -572,6 +576,7 @@ ApplicationWindow {
         function receive(value)
         {
 
+            reqIndex = view.currentIndex + value
             if(value > 0)
             {
                 for(var i = 0; i < value; i++)
@@ -583,6 +588,7 @@ ApplicationWindow {
                 }
             }
 
+
             if(value < 0)
             {
                 for(var j = value; j < 0; j++)
@@ -591,6 +597,17 @@ ApplicationWindow {
                     view.decrementCurrentIndex()
                 }
             }
+        }
+
+
+        Timer {
+            id: timer
+        }
+
+        function delay(delayTime) {
+            timer.interval = delayTime;
+            timer.repeat = false;
+            timer.start();
         }
 
     }
@@ -605,16 +622,16 @@ ApplicationWindow {
 
 
     Repeater {
-              model: 3
-              Loader {
-                  active: SwipeView.isCurrentItem || SwipeView.isNextItem || SwipeView.isPreviousItem
-                  sourceComponent: Text {
-                      text: index
-                      Component.onCompleted: console.log("created:", index)
-                      Component.onDestruction: console.log("destroyed:", index)
-                  }
-              }
-          }
+        model: 3
+        Loader {
+            active: SwipeView.isCurrentItem || SwipeView.isNextItem || SwipeView.isPreviousItem
+            sourceComponent: Text {
+                text: index
+                Component.onCompleted: console.log("created:", index)
+                Component.onDestruction: console.log("destroyed:", index)
+            }
+        }
+    }
 
 
 
