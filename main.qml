@@ -196,16 +196,16 @@ ApplicationWindow {
         anchors.top: parent.top
 
         onCurrentIndexChanged: {
-//            if(view.currentIndex === 3 || view.currentIndex === 4)
-//            {
-//                  view.orientation = Qt.Vertical
+            if(view.currentIndex === 3 || view.currentIndex === 4)
+            {
+                  view.orientation = Qt.Vertical
 
-//            }
+            }
 
-//            else
-//            {
-//                view.orientation = Qt.Horizontal
-//            }
+            else
+            {
+                view.orientation = Qt.Horizontal
+            }
 
 
             console.log("After Index Changed " + view.currentIndex + "/n")
