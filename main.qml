@@ -220,22 +220,6 @@ ApplicationWindow {
 
             window.title = title[view.currentIndex]
 
-//            if(view.currentIndex === 3 || view.currentIndex === 4)
-//            {
-//                view.orientation = Qt.Vertical
-
-//            }
-
-//            else
-//            {
-//                view.orientation = Qt.Horizontal
-
-
-//            }
-
-
-            //console.log("After Index Changed " + view.currentIndex)
-
         }
         //home
         Item {
@@ -252,117 +236,52 @@ ApplicationWindow {
 
         //0 systeme
         Item{
-
             id: two
-            //            Loader {
-            //                // index 1
-            //                id: pagetwo
-            //                source: "SystemeForm_0.qml"
-            //                anchors.fill: parent
-            //                anchors.top: parent.top
-            //            }
-
             SystemeForm_0{
                 id: systemeForm
                 onIncPage: {
                     view.receive(value)
                 }
             }
-
         }
 
         //1-intro1
         Item{
             id: three
-            //            Loader {
-            //                // index 2
-            //                id: pagethree
-            //                source: "Intro_1.qml"
-            //                anchors.fill: parent
-            //                anchors.top: parent.top
-            //            }
-
             Intro_1 {
                 id: intro1
-
                 onIncPage: {
                     view.receive(value)
                 }
-
             }
         }
 
         //2-intro2
         Item{
             id: four
-            //            Loader {
-            //                // index 3
-            //                id: pagefour
-            //                source: "Intro_2.qml"
-            //                anchors.fill: parent
-            //                anchors.top: parent.top
-            //            }
-
             Intro_2{
                 id: intro2
-
                 onIncPage: {
-
-
-                    console.log("Button event  = " + view.currentIndex)
-
-
                     view.receive(value)
-                    console.log("Button event  = " + view.currentIndex)
-
-
-                }
-                onChangeOrientation : {
-
-                    //view.setOrientation(value)
-                    //console.log("Current Orientation = " + view.orientation.toString())
-                    //view.delay(3000)
-
                 }
             }
         }
-
-
         //3-intro3 plus
         Item{
             id: five
-            //            Loader {
-            //                // index 4
-            //                id: pagefive
-            //                source: "Intro_3.qml"
-            //                anchors.fill: parent
-            //                anchors.top: parent.top
-            //            }
-
             Intro_3{
                 id: intro3
-
                 onIncPage: {
                     view.receive(value)
                 }
             }
         }
-
 
         //Emitteur-recep_4
         Item{
             id: six
-            //            Loader {
-            //                // index 5
-            //                id: pageSix
-            //                source: "Emitteur_recep_4.qml"
-            //                anchors.fill: parent
-            //                anchors.top: parent.top
-            //            }
-
             Emitteur_recep_4 {
                 id:emiterRecForm4
-
                 onIncPage: {
                     view.receive(value)
                 }
@@ -371,17 +290,8 @@ ApplicationWindow {
 
         Item{
             id: seven
-            //            Loader {
-            //                // index 6
-            //                id: pageSeven
-            //                source: "Emitteur_5.qml"
-            //                anchors.fill: parent
-            //                anchors.top: parent.top
-            //            }
-
             Emitteur_5 {
                 id:emiterForm5
-
                 onIncPage: {
                     view.receive(value)
                 }
@@ -390,17 +300,8 @@ ApplicationWindow {
 
         Item{
             id: eight
-            //            Loader {
-            //                // index 7
-            //                id: pageEight
-            //                source: "Recepteur_6.qml"
-            //                anchors.fill: parent
-            //                anchors.top: parent.top
-            //            }
-
             Recepteur_6 {
                 id:emiterForm6
-
                 onIncPage: {
                     view.receive(value)
                 }
@@ -409,14 +310,6 @@ ApplicationWindow {
 
         Item{
             id: nine
-            //            Loader {
-            //                // index 8
-            //                id: pageNine
-            //                source: "Rmp_7.qml"
-            //                anchors.fill: parent
-            //                anchors.top: parent.top
-            //            }
-
             Rmp_7 {
                 id:rmp7
 
@@ -428,14 +321,6 @@ ApplicationWindow {
 
         Item{
             id: ten
-            //            Loader {
-            //                // index 9
-            //                id: pageTen
-            //                source: "Acp_8.qml"
-            //                anchors.fill: parent
-            //                anchors.top: parent.top
-            //            }
-
             Acp_8 {
                 id:acp8
 
@@ -447,14 +332,6 @@ ApplicationWindow {
 
         Item{
             id: eleven
-            //            Loader {
-            //                // index 9
-            //                id: pageEleven
-            //                source: "Amu_9.qml"
-            //                anchors.fill: parent
-            //                anchors.top: parent.top
-            //            }
-
             Amu_9 {
                 id:amu9
 
@@ -466,14 +343,6 @@ ApplicationWindow {
 
         Item{
             id: twelve
-            //            Loader {
-            //                // index 9
-            //                id: pageTwelve
-            //                source: "Rf_10.qml"
-            //                anchors.fill: parent
-            //                anchors.top: parent.top
-            //            }
-
             Rf_10 {
                 id:rf10
 
@@ -484,14 +353,6 @@ ApplicationWindow {
         }
         Item{
             id: thirteen
-            //            Loader {
-            //                // index 9
-            //                id: pageThirteen
-            //                source: "Aero_11.qml"
-            //                anchors.fill: parent
-            //                anchors.top: parent.top
-            //            }
-
             Aero_11 {
                 id:aero11
 
@@ -503,14 +364,6 @@ ApplicationWindow {
 
         Item{
             id: forteen
-            //            Loader {
-            //                // index 9
-            //                id: pageforteen
-            //                source: "Simulation_12.qml"
-            //                anchors.fill: parent
-            //                anchors.top: parent.top
-            //            }
-
             Simulation_12 {
                 id:simu12
 
@@ -522,14 +375,6 @@ ApplicationWindow {
 
         Item{
             id: fifteen
-            //            Loader {
-            //                // index 9
-            //                id: pagefifteen
-            //                source: "SimulationSol.qml"
-            //                anchors.fill: parent
-            //                anchors.top: parent.top
-            //            }
-
             SimulationSol {
                 id:simuSol
 
@@ -540,14 +385,6 @@ ApplicationWindow {
         }
         Item{
             id: sixteen
-            //            Loader {
-            //                // index 9
-            //                id: pageSixteen
-            //                source: "Aide_12.qml"
-            //                anchors.fill: parent
-            //                anchors.top: parent.top
-            //            }
-
             Aide_12 {
                 id:aide12
 
@@ -556,13 +393,6 @@ ApplicationWindow {
                 }
             }
         }
-
-
-
-
-
-
-
 
         function setStaticIncrement(value)
         {
