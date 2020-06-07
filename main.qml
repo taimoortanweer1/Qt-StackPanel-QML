@@ -21,13 +21,21 @@ ApplicationWindow {
             text: view.currentIndex > 1 ? "\u25C0" : "\u2630"
 
             font.pixelSize: Qt.application.font.pixelSize * 1.6
+
+            ToolTip.visible: hovered
+            ToolTip.text: view.currentIndex > 1 ? qsTr("Home Page") : qsTr("Menu")
+
             onClicked: {
                 if (view.currentIndex > 1) {
-                    view.decrementCurrentIndex()
+                    //view.decrementCurrentIndex()
+                    view.setCurrentIndex(1)
+
                 } else {
                     drawer.open()
                 }
             }
+
+
         }
         Label {
             //text: view.currentIndex
@@ -215,18 +223,18 @@ ApplicationWindow {
 //            if(view.currentIndex === 3 || view.currentIndex === 4)
 //            {
 //                view.orientation = Qt.Vertical
-//                console.log("Required Index " + reqIndex + "/n")
+
 //            }
 
 //            else
 //            {
 //                view.orientation = Qt.Horizontal
-//                console.log("Required Index " + reqIndex + "/n")
+
 
 //            }
 
 
-            console.log("After Index Changed " + view.currentIndex)
+            //console.log("After Index Changed " + view.currentIndex)
 
         }
         //home
@@ -277,7 +285,9 @@ ApplicationWindow {
             Intro_1 {
                 id: intro1
 
-
+                onIncPage: {
+                    view.receive(value)
+                }
 
             }
         }
@@ -309,9 +319,9 @@ ApplicationWindow {
                 }
                 onChangeOrientation : {
 
-                    view.setOrientation(value)
-                    console.log("Current Orientation = " + view.orientation.toString())
-                    view.delay(300);
+                    //view.setOrientation(value)
+                    //console.log("Current Orientation = " + view.orientation.toString())
+                    //view.delay(3000)
 
                 }
             }

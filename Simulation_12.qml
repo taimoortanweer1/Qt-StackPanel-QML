@@ -13,7 +13,7 @@ Page {
         id: control
         font.pointSize: 13
         width: 200
-        y: parent.height - 250
+        y: parent.height - 200
         x: parent.width * 0.5 - 1.75 * width
 
         contentItem: Text {
@@ -45,7 +45,7 @@ Page {
         id: control1
         font.pointSize: 13
         width: 200
-        y: parent.height - 250
+        y: parent.height - 200
         x: parent.width * 3 / 4 - width * 0.75
 
         contentItem: Text {

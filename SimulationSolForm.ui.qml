@@ -316,8 +316,8 @@ Item {
 
             Rectangle {
                 id: rectangle3
-                x: 389
-                y: 510
+                x: 416
+                y: 505
                 width: 401
                 height: 102
                 color: "#073685"
@@ -457,8 +457,8 @@ Item {
 
             Slider {
                 id: sliderAV2
-                x: 409
-                y: 472
+                x: 436
+                y: 467
                 width: 94
                 height: 40
                 from: 10
@@ -471,26 +471,26 @@ Item {
             Label {
                 id: label15
                 x: -16
-                y: 451
+                y: 446
                 height: 21
                 color: "#f9f9f9"
                 text: qsTr("AV3")
                 anchors.left: parent.left
-                anchors.rightMargin: 785
-                anchors.leftMargin: 467
+                anchors.rightMargin: 758
+                anchors.leftMargin: 494
                 anchors.right: parent.right
             }
 
             Label {
                 id: label16
                 x: -14
-                y: 451
+                y: 446
                 height: 21
                 color: "#f9f9f9"
                 text: qsTr("AV1")
                 anchors.left: parent.left
-                anchors.rightMargin: 861
-                anchors.leftMargin: 402
+                anchors.rightMargin: 834
+                anchors.leftMargin: 429
                 anchors.right: parent.right
             }
 
@@ -535,8 +535,8 @@ Item {
 
             Rectangle {
                 id: rectangleLED2
-                x: 753
-                y: 480
+                x: 780
+                y: 475
                 width: 26
                 height: 24
                 color: "#000000"

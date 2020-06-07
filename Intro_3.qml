@@ -10,17 +10,28 @@ Page {
     signal decPage(var value)
 
     Button {
+        id: control
         font.pointSize: 15
-        width: 100
-        y: 0
-        x: parent.width * 0.5 - width/2
+        width: 250
+        y: parent.height - 80
+        x: parent.width * 0.5 - 1.5 * width
+
+        contentItem: Text {
+                   color: control.hovered ? "#000000" : "#ffffff"
+                   text: qsTr("Retour")
+                   font.pointSize: 15
+                   horizontalAlignment: Text.AlignHCenter
+                   verticalAlignment: Text.AlignVCenter
+        }
 
         background: Rectangle {
             anchors.fill: parent
-            color: "transparent"
-            opacity: 1
+            color: control.hovered ? "#ffffff" : "transparent"
+            border.color: "#ffffff"
+            border.width: 2
 
-            Image { source: "images/back.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
+
+
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
@@ -29,6 +40,60 @@ Page {
             }
         }
     }
+
+    Button {
+        id: control1
+        font.pointSize: 15
+        width: 250
+        y: parent.height - 80
+        x: parent.width * 0.5 + width / 2
+
+        contentItem: Text {
+                   color: control1.hovered ? "#000000" : "#ffffff"
+                   text: qsTr("Suivant")
+                   font.pointSize: 15
+                   horizontalAlignment: Text.AlignHCenter
+                   verticalAlignment: Text.AlignVCenter
+        }
+
+        background: Rectangle {
+            anchors.fill: parent
+            color: control1.hovered ? "#ffffff" : "transparent"
+            border.color: "#ffffff"
+            border.width: 2
+
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                   plus.incPage(1)
+                }
+            }
+        }
+    }
+
+//    Button {
+//        font.pointSize: 15
+//        width: 100
+//        y: 0
+//        x: parent.width * 0.5 - width/2
+
+//        background: Rectangle {
+//            anchors.fill: parent
+//            color: "transparent"
+//            opacity: 1
+
+//            Image { source: "images/back.png"; fillMode: Image.Stretch; anchors.fill: parent;  opacity: 1 }
+//            MouseArea {
+//                anchors.fill: parent
+//                onClicked: {
+//                   plus.incPage(-1)
+//                }
+//            }
+//        }
+//    }
+
+
 
     background: Rectangle {
         anchors.fill: parent

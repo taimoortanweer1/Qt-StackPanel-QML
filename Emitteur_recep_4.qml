@@ -11,10 +11,10 @@ Page {
     signal decPage(var value)
 
     Button {
-        id: control        
+        id: control
         font.pointSize: 15
         width: 250
-        y: parent.height - 100
+        y: parent.height - 80
         x: parent.width * 0.5 - 1.5 * width
 
         contentItem: Text {
@@ -32,10 +32,11 @@ Page {
             border.width: 2
 
 
+
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                emit_recep.incPage(-2)
+                   emit_recep.incPage(-1)
                 }
             }
         }
@@ -45,7 +46,7 @@ Page {
         id: control1
         font.pointSize: 15
         width: 250
-        y: parent.height - 100
+        y: parent.height - 80
         x: parent.width * 0.5 + width / 2
 
         contentItem: Text {
@@ -63,7 +64,6 @@ Page {
             border.width: 2
 
 
-
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
@@ -72,7 +72,6 @@ Page {
             }
         }
     }
-
     Button {
         id: control2
         font.pointSize: 15
