@@ -16,6 +16,15 @@ SimulationSolForm {
     //0x06 two and three exchange
 
     property var startSim: false
+    textFieldTX2.onPressed: {
+        textFieldTX2.text = ""
+    }
+    textFieldTX1.onPressed: {
+        textFieldTX1.text = ""
+    }
+    textFieldTX3.onPressed: {
+        textFieldTX3.text = ""
+    }
     switchAS.onToggled: {
 
         if(switchAS.checked == true)
@@ -29,7 +38,7 @@ SimulationSolForm {
             spinBoxActiveF.enabled = true
             spinBoxStandByF.enabled = false
         }
-} //simulation power button
+    } //simulation power button
 
     textFieldTX1.onTextChanged: {
         canvas1.changeLEDAvion1()
@@ -45,26 +54,28 @@ SimulationSolForm {
     textFieldTX1.onEditingFinished: {
 
         if(startSim === true)
-        canvas1.sendFunction1()
+            canvas1.sendFunction1()
 
-}
+
+
+    }
     textFieldTX2.onEditingFinished: {
 
         if(startSim === true)
-        canvas1.sendFunction2()
+            canvas1.sendFunction2()
 
-}
+    }
 
     textFieldTX3.onEditingFinished: {
 
         if(startSim === true)
-        canvas1.sendFunction3()
+            canvas1.sendFunction3()
 
-}
+    }
 
     buttonAide.onClicked: {
 
-       simuSol.incPage(1);
+        simuSol.incPage(1);
     }
 
 
@@ -77,9 +88,47 @@ SimulationSolForm {
             //sliderAV2.enabled = true
             //sliderAV3.enabled = true
 
+
+            if(avion[0] === 1)
+            {
+                sliderAV1.enabled = true
+                sliderAV2.enabled = false
+                sliderAV3.enabled = false
+
+                rectangleLED1.color = "#FF0000"
+                rectangleLED2.color = "#00FF00"
+                rectangleLED3.color = "#00FF00"
+
+            }
+            else if(avion[1] === 1)
+            {
+                sliderAV2.enabled = true
+                sliderAV1.enabled = false
+                sliderAV1.enabled = false
+
+                rectangleLED2.color = "#FF0000"
+                rectangleLED1.color = "#00FF00"
+                rectangleLED3.color = "#00FF00"
+            }
+            else if(avion[2] === 1)
+            {
+                sliderAV3.enabled = true
+                sliderAV1.enabled = false
+                sliderAV2.enabled = false
+
+                rectangleLED3.color = "#FF0000"
+                rectangleLED1.color = "#00FF00"
+                rectangleLED2.color = "#00FF00"
+            }
+
+
         }
         else
         {
+            canvas1.linePosition(0,0,0,0)
+            canvas1.clear_canvas()
+            canvas1.requestPaint()
+
             startSim = false
             textFieldRX1.text = ""
             textFieldRX2.text = ""
@@ -87,9 +136,9 @@ SimulationSolForm {
             textFieldTX1.text = ""
             textFieldTX2.text = ""
             textFieldTX3.text = ""
-//            sliderAV1.enabled = false
-//            sliderAV2.enabled = false
-//            sliderAV3.enabled = false
+            sliderAV1.enabled = false
+            sliderAV2.enabled = false
+            sliderAV3.enabled = false
             rectangleLED1.color = "black"
             rectangleLED2.color = "black"
             rectangleLED3.color = "black"
@@ -139,19 +188,38 @@ SimulationSolForm {
         {
             if(avion[0] === 1)
             {
-                if(sendto === 3)
-                {
-                    textFieldRX2.text = textFieldTX1.text
-                }
-                if(sendto === 5)
-                {
-                    textFieldRX3.text = textFieldTX1.text
-                }
+
+                textFieldRX2.text = textFieldTX1.text
+                textFieldRX3.text = textFieldTX1.text
+
+
+//                if(sendto === 3)
+//                {
+//                    textFieldRX2.text = textFieldTX1.text
+//                }
+//                if(sendto === 5)
+//                {
+//                    textFieldRX3.text = textFieldTX1.text
+//                }
+            }
+
+            if(avion[1] === 1 && sendto === 3)
+            {
+                textFieldRX1.text = textFieldTX2.text
+            }
+
+            else if (avion[2] === 1 && sendto === 5)
+            {
+                textFieldRX1.text = textFieldTX2.text
             }
         }
         function sendFunction2() {
             if(avion[1] === 1)
             {
+
+                textFieldRX1.text = textFieldTX2.text
+                textFieldRX3.text = textFieldTX2.text
+
                 if(sendto === 3)
                 {
                     textFieldRX1.text = textFieldTX2.text
@@ -161,11 +229,24 @@ SimulationSolForm {
                     textFieldRX3.text = textFieldTX2.text
                 }
             }
+
+            if(avion[0] === 1 && sendto === 3)
+            {
+                textFieldRX2.text = textFieldTX1.text
+            }
+
+            else if (avion[2] === 1 && sendto === 6)
+            {
+                textFieldRX2.text = textFieldTX3.text
+            }
         }
 
         function sendFunction3() {
             if(avion[2] === 1)
             {
+                textFieldRX1.text = textFieldTX3.text
+                textFieldRX2.text = textFieldTX3.text
+
                 if(sendto === 5)
                 {
                     textFieldRX1.text = textFieldTX3.text
@@ -174,6 +255,16 @@ SimulationSolForm {
                 {
                     textFieldRX2.text = textFieldTX3.text
                 }
+            }
+
+            if(avion[0] === 1 && sendto === 5)
+            {
+                textFieldRX3.text = textFieldTX1.text
+            }
+
+            else if (avion[1] === 1 && sendto === 6)
+            {
+                textFieldRX3.text = textFieldTX2.text
             }
 
         }
@@ -199,7 +290,7 @@ SimulationSolForm {
         {
             if(avion[1] === 1 && startSim === true)
             {
-  if(sendto === 3) //011
+                if(sendto === 3) //011
                 {
                     rectangleLED1.color = "#00FF00"
                     rectangleLED2.color = "#FF0000"
@@ -238,17 +329,30 @@ SimulationSolForm {
     switchOnOff.onToggled: {
         if(switchOnOff.checked)
         { power = true
-          spinBoxActiveF.enabled = true
-          spinBoxStandByF.enabled = true
-          switchAS.enabled = true
-          roundButtonUHF.enabled = true
-          roundButtonVHF.enabled = true
-          dialvolume.enabled = true
-          sliderAVSelect.enabled = true
+            spinBoxActiveF.enabled = true
+            spinBoxStandByF.enabled = true
+            switchAS.enabled = true
+            roundButtonUHF.enabled = true
+            roundButtonVHF.enabled = true
+            dialvolume.enabled = true
+            sliderAVSelect.enabled = true
+
+
+            sliderAV3.enabled = true
+            sliderAV1.enabled = true
+            sliderAV2.enabled = true
+
+            rectangleLED1.color = "#000000"
+            rectangleLED2.color = "#000000"
+            rectangleLED3.color = "#000000"
 
         }
         else
         {
+            canvas1.linePosition(0,0,0,0)
+            canvas1.clear_canvas()
+            canvas1.requestPaint()
+
             power = false
 
             spinBoxActiveF.enabled = false
@@ -258,6 +362,24 @@ SimulationSolForm {
             roundButtonVHF.enabled = false
             dialvolume.enabled = false
             sliderAVSelect.enabled = false
+
+            sliderAV3.enabled = false
+            sliderAV1.enabled = false
+            sliderAV2.enabled = false
+
+            rectangleLED1.color = "#000000"
+            rectangleLED2.color = "#000000"
+            rectangleLED3.color = "#000000"
+
+            textFieldRX1.text = ""
+            textFieldRX2.text = ""
+            textFieldRX3.text = ""
+            textFieldTX1.text = ""
+            textFieldTX2.text = ""
+            textFieldTX3.text = ""
+
+            canvas1.clear_canvas()
+
         }
 
     }

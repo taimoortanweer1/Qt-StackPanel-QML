@@ -10,7 +10,7 @@ ApplicationWindow {
     maximumWidth:  1300
     minimumHeight: 650
     minimumWidth:  1300
-    title: qsTr("Acceuil")
+    title: qsTr("Your School Name")
 
     property var reqIndex : -1
     header: ToolBar {
@@ -18,7 +18,7 @@ ApplicationWindow {
 
         ToolButton {
             id: toolButton
-            text: view.currentIndex > 1 ? "\u25C0" : "\u2630"
+            text: view.currentIndex > 0 ? "\u25C0" : "\u2630"
 
             font.pixelSize: Qt.application.font.pixelSize * 1.6
 
@@ -37,8 +37,10 @@ ApplicationWindow {
 
 
         }
+
         Label {
-            //text: view.currentIndex
+            id: headertext
+            text: "Home"
             anchors.centerIn: parent
         }
     }
@@ -89,7 +91,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    view.setCurrentIndex(6)
+                    view.setCurrentIndex(5)
                     drawer.close()
                 }
             }
@@ -218,7 +220,8 @@ ApplicationWindow {
                          "Simulation",
                          "Communication avion-avion","Aide"]
 
-            window.title = title[view.currentIndex]
+            //window.title = title[view.currentIndex]
+            headertext.text = title[view.currentIndex]
 
         }
         //home

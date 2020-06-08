@@ -42,38 +42,38 @@ Page {
         }
     }
 
-    Button {
-        id: control1
-        font.pointSize: 15
-        width: 250
-        y: parent.height - 80
-        x: parent.width * 0.5 + width / 2
+//    Button {
+//        id: control1
+//        font.pointSize: 15
+//        width: 250
+//        y: parent.height - 80
+//        x: parent.width * 0.5 + width / 2
 
-        contentItem: Text {
-                   color: control1.hovered ? "#000000" : "#ffffff"
-                   text: qsTr("Suivant")
-                   font.pointSize: 15
-                   horizontalAlignment: Text.AlignHCenter
-                   verticalAlignment: Text.AlignVCenter
-        }
+//        contentItem: Text {
+//                   color: control1.hovered ? "#000000" : "#ffffff"
+//                   text: qsTr("Suivant")
+//                   font.pointSize: 15
+//                   horizontalAlignment: Text.AlignHCenter
+//                   verticalAlignment: Text.AlignVCenter
+//        }
 
-        background: Rectangle {
-            anchors.fill: parent
-            color: control1.hovered ? "#ffffff" : "transparent"
-            border.color: "#ffffff"
-            border.width: 2
-
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    aide.incPage(1)
+//        background: Rectangle {
+//            anchors.fill: parent
+//            color: control1.hovered ? "#ffffff" : "transparent"
+//            border.color: "#ffffff"
+//            border.width: 2
 
 
-                }
-            }
-        }
-    }
+//            MouseArea {
+//                anchors.fill: parent
+//                onClicked: {
+//                    aide.incPage(1)
+
+
+//                }
+//            }
+//        }
+//    }
 
 
     background: Rectangle {

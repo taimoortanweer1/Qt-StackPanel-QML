@@ -37,7 +37,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                   emitRecp.incPage(-1)
+                   emitRecp.incPage(-2)
                 }
             }
         }
