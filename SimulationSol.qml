@@ -17,13 +17,29 @@ SimulationSolForm {
 
     property var startSim: false
     textFieldTX2.onPressed: {
+
+        textFieldTX1.text = ""
         textFieldTX2.text = ""
+        textFieldTX3.text = ""
+        textFieldRX1.text = ""
+        textFieldRX2.text = ""
+        textFieldRX3.text = ""
     }
     textFieldTX1.onPressed: {
         textFieldTX1.text = ""
+        textFieldTX2.text = ""
+        textFieldTX3.text = ""
+        textFieldRX1.text = ""
+        textFieldRX2.text = ""
+        textFieldRX3.text = ""
     }
     textFieldTX3.onPressed: {
+        textFieldTX1.text = ""
+        textFieldTX2.text = ""
         textFieldTX3.text = ""
+        textFieldRX1.text = ""
+        textFieldRX2.text = ""
+        textFieldRX3.text = ""
     }
     switchAS.onToggled: {
 

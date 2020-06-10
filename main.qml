@@ -26,9 +26,11 @@ ApplicationWindow {
             ToolTip.text: view.currentIndex > 1 ? qsTr("Home Page") : qsTr("Menu")
 
             onClicked: {
-                if (view.currentIndex > 1) {
+                if (view.currentIndex > 0) {
                     //view.decrementCurrentIndex()
-                    view.setCurrentIndex(1)
+                    view.setCurrentIndex(0)
+
+                    console.log(view.currentIndex)
 
                 } else {
                     drawer.open()
