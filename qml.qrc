@@ -22,5 +22,14 @@
         <file>Aide_12.qml</file>
         <file>SystemeForm_0.qml</file>
         <file>Emitteur_recep_4.qml</file>
+        <file>SimulationAvionTower.qml</file>
+        <file>SimulationAvionTowerForm.ui.qml</file>
+        <file>FlightPlan.qml</file>
+        <file>FlightPlanForm.ui.qml</file>
+        <file>FlightRules.qml</file>
+        <file>FlightRulesForm.ui.qml</file>
+        <file>planeRight.png</file>
+        <file>planeLeft.png</file>
+        <file>comAvion.png</file>
     </qresource>
 </RCC>

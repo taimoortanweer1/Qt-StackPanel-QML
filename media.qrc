@@ -23,5 +23,13 @@
         <file>images/formationImage.png</file>
         <file>images/simulationImage.png</file>
         <file>images/back.png</file>
+        <file>audios/avion 1.ogg</file>
+        <file>audios/avion 2.ogg</file>
+        <file>audios/avion 3.ogg</file>
+        <file>audios/avion 4.ogg</file>
+        <file>audios/centre .ogg</file>
+        <file>audios/tour 1.ogg</file>
+        <file>audios/tour 2.ogg</file>
+        <file>audios/tour 3.ogg</file>
     </qresource>
 </RCC>

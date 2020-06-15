@@ -188,7 +188,7 @@ ApplicationWindow {
                 x: parent.width / 6
                 width: parent.width - x
                 onClicked: {
-                    stackView.push("11_com_sol.qml")
+                    view.setCurrentIndex(16)
                     drawer.close()
                 }
             }
@@ -220,9 +220,8 @@ ApplicationWindow {
                          "Émetteur-Récepteur","Émetteur-Récepteur","Panneau de commande radio (RMP)",
                          "Panneau de configuration audio (ACP)","Unité de gestion audio (AMU)","Bande frequency","Phraseologie Aeronotique",
                          "Simulation",
-                         "Communication avion-avion","Aide"]
+                         "Communication avion-avion","Aide","Communication Sol-Avion"]
 
-            //window.title = title[view.currentIndex]
             headertext.text = title[view.currentIndex]
 
         }
@@ -398,6 +397,20 @@ ApplicationWindow {
                 }
             }
         }
+
+        Item{
+            id: seventeen
+            SimulationAvionTower {
+                id:simuAvionTower
+
+                onIncPage: {
+                    view.receive(value)
+                }
+
+            }
+        }
+
+
 
         function setStaticIncrement(value)
         {
