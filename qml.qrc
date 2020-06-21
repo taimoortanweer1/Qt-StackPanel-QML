@@ -31,5 +31,7 @@
         <file>planeRight.png</file>
         <file>planeLeft.png</file>
         <file>comAvion.png</file>
+        <file>DoubleSpinBox.qml</file>
+        <file>Aide2_13.qml</file>
     </qresource>
 </RCC>

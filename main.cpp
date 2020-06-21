@@ -14,8 +14,10 @@ int main(int argc, char *argv[])
     QQuickView view(QUrl("qrc:/SimulationAvionTower.qml"));
     QObject *item = (QObject*)view.rootObject();
 
+
     AudiosClass audio;
-    QObject::connect(item, SIGNAL(playAudio(int)),&audio, SLOT(playfile(int)));
+    qmlRegisterType<AudiosClass>("io.qt.examples.AudiosClass", 1, 0, "AudiosClass");
+
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

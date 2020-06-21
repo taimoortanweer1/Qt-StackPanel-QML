@@ -7,6 +7,14 @@ import QtQuick 2.0
 Item {
     width: 1300
     height: 620
+    property alias buttonDemarText: buttonDemarText
+    property alias spinBoxStandByF: spinBoxStandByF
+    property alias rectangleLEDControl: rectangleLEDControl
+
+    property alias rectanglePlaneRight: rectanglePlaneRight
+    property alias rectangleLED3: rectangleLED3
+    property alias rectangleLED2: rectangleLED2
+    property alias rectangleLED1: rectangleLED1
     property alias rectangleSignal2: rectangleSignal2
     property alias rectangleSignal1: rectangleSignal1
     property alias rectangleSignal: rectangleSignal
@@ -21,7 +29,6 @@ Item {
     property alias roundButtonUHF: roundButtonUHF
     property alias dialvolume: dialvolume
     property alias switchAS: switchAS
-    property alias spinBoxStandByF: spinBoxStandByF
     property alias spinBoxActiveF: spinBoxActiveF
     property alias roundButtonVHF: roundButtonVHF
     property alias switchOnOff: switchOnOff
@@ -50,14 +57,14 @@ Item {
 
             Rectangle {
                 id: rectangle1
-                x: 494
+                x: 181
                 y: 171
                 width: 404
                 height: 172
                 color: "#073685"
                 radius: 20
                 opacity: 0.6
-                anchors.verticalCenterOffset: -190
+                anchors.verticalCenterOffset: -210
                 anchors.verticalCenter: parent.verticalCenter
                 border.width: 0
 
@@ -83,34 +90,18 @@ Item {
                     text: qsTr("Standby")
                 }
 
-                SpinBox {
+                DoubleSpinBox {
                     id: spinBoxActiveF
-                    y: 26
+                    y: 18
+                    width: 160
+                    height: 60
+                    editable: true
+                    font.pixelSize: 20
                     enabled: false
                     anchors.right: parent.right
-                    anchors.rightMargin: 253
+                    anchors.rightMargin: 248
                     anchors.left: parent.left
-                    anchors.leftMargin: 27
-                    scale: 0.7
-                    value: 100
-                    stepSize: 1
-                    to: 200
-                    from: 80
-                    font.pointSize: 11
-                    wheelEnabled: true
-                }
-
-                SpinBox {
-                    id: spinBoxStandByF
-                    x: 221
-                    y: 26
-                    enabled: false
-                    anchors.leftMargin: 58
-                    from: 80
-                    stepSize: 1
-                    to: 200
-                    value: 100
-                    font.pointSize: 11
+                    anchors.leftMargin: -1
                     scale: 0.7
                     wheelEnabled: true
                 }
@@ -120,8 +111,9 @@ Item {
                     x: 147
                     y: 26
                     text: qsTr("")
+                    checkable: true
                     enabled: false
-                    checked: false
+                    checked: true
                 }
 
                 Dial {
@@ -134,9 +126,9 @@ Item {
                     anchors.right: parent.right
                     anchors.rightMargin: 181
                     inputMode: Dial.Horizontal
-                    value: 4
-                    stepSize: 1
-                    to: 10
+                    value: 50
+                    stepSize: 5
+                    to: 100
                     from: 0
                 }
 
@@ -179,40 +171,58 @@ Item {
                     anchors.leftMargin: 168
                     anchors.right: parent.right
                 }
-            }
 
-            GroupBox {
-                id: groupBox
-                x: 503
-                y: 104
-                width: 129
-                height: 74
-                title: qsTr("")
-
-                RoundButton {
-                    id: roundButtonVHF
-                    x: -8
-                    y: -3
-                    width: 59
-                    height: 56
-                    text: "VHF"
+                DoubleSpinBox {
+                    id: spinBoxStandByF
+                    x: 9
+                    y: 17
+                    width: 160
+                    height: 60
+                    dValue: 300
+                    anchors.right: parent.right
+                    anchors.left: parent.left
+                    anchors.leftMargin: 211
+                    editable: true
+                    anchors.rightMargin: 36
+                    wheelEnabled: true
+                    scale: 0.7
+                    font.pixelSize: 20
                     enabled: false
-                    autoExclusive: true
-                    checkable: true
-                    checked: false
                 }
 
-                RoundButton {
-                    id: roundButtonUHF
-                    x: 53
-                    y: -3
-                    width: 58
-                    height: 56
-                    text: "UHF"
-                    enabled: false
-                    autoExclusive: true
-                    checkable: true
-                    checked: false
+                GroupBox {
+                    id: groupBox
+                    x: 13
+                    y: 91
+                    width: 129
+                    height: 74
+                    title: qsTr("")
+
+                    RoundButton {
+                        id: roundButtonVHF
+                        x: -8
+                        y: -3
+                        width: 59
+                        height: 56
+                        text: "VHF"
+                        enabled: false
+                        autoExclusive: true
+                        checkable: true
+                        checked: false
+                    }
+
+                    RoundButton {
+                        id: roundButtonUHF
+                        x: 53
+                        y: -3
+                        width: 58
+                        height: 56
+                        text: "UHF"
+                        enabled: false
+                        autoExclusive: true
+                        checkable: true
+                        checked: false
+                    }
                 }
             }
 
@@ -224,7 +234,7 @@ Item {
                 height: 37
 
                 Text {
-                    id: name
+                    id: buttonDemarText
                     width: 156
                     height: 37
                     text: qsTr("Demarr la simulation")
@@ -276,8 +286,8 @@ vole")
 
             Rectangle {
                 id: rectangleLED1
-                x: 8
-                y: 408
+                x: 21
+                y: 523
                 width: 30
                 height: 30
                 color: "#000000"
@@ -286,8 +296,8 @@ vole")
 
             Rectangle {
                 id: rectangleLED3
-                x: 1076
-                y: 153
+                x: 1150
+                y: 201
                 width: 30
                 height: 30
                 color: "#000000"
@@ -296,8 +306,8 @@ vole")
 
             Rectangle {
                 id: rectangleLED2
-                x: 839
-                y: 453
+                x: 328
+                y: 513
                 width: 30
                 height: 30
                 color: "#000000"
@@ -324,9 +334,9 @@ vole")
             }
 
             Rectangle {
-                id: rectangle6
+                id: rectanglePlaneRight
                 x: 1150
-                y: 190
+                y: 237
                 width: 110
                 height: 70
                 color: "#00000000"
@@ -370,8 +380,8 @@ vole")
 
             Label {
                 id: labelValidPlan
-                x: 805
-                y: 498
+                x: 372
+                y: 528
                 width: 93
                 height: 20
                 visible: false
@@ -379,16 +389,27 @@ vole")
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
             }
+
+            Rectangle {
+                id: rectangleLEDControl
+                x: 827
+                y: 488
+                width: 30
+                height: 30
+                color: "#000000"
+                radius: 15
+            }
         }
     }
 }
 
 /*##^##
 Designer {
-    D{i:0;height:620;width:1300}D{i:4;anchors_width:69;anchors_x:90}D{i:6;anchors_x:40}
-D{i:11;anchors_width:69;anchors_x:90}D{i:12;anchors_width:69;anchors_x:90}D{i:14;anchors_height:56;anchors_width:69;anchors_x:90;anchors_y:"-3"}
-D{i:15;anchors_width:69;anchors_x:90}D{i:13;anchors_width:69;anchors_x:90;anchors_y:202}
-D{i:16;anchors_width:69;anchors_x:90}D{i:22;anchors_height:37;anchors_width:156}D{i:20;anchors_width:69;anchors_x:90}
+    D{i:0;height:620;width:1300}D{i:4;anchors_width:69;anchors_x:90}D{i:10;anchors_width:69;anchors_x:90}
+D{i:11;anchors_width:69;anchors_x:90}D{i:14;anchors_height:56;anchors_width:69;anchors_x:90;anchors_y:202}
+D{i:15;anchors_height:56;anchors_width:69;anchors_x:90;anchors_y:"-3"}D{i:13;anchors_width:69;anchors_x:90;anchors_y:202}
+D{i:17;anchors_width:69;anchors_x:90}D{i:16;anchors_width:69;anchors_x:90}D{i:21;anchors_width:69;anchors_x:90}
+D{i:22;anchors_height:37;anchors_width:156}D{i:20;anchors_width:69;anchors_x:90}D{i:23;anchors_height:37;anchors_width:156}
 D{i:2;anchors_height:100;anchors_width:100;anchors_x:452;anchors_y:216}D{i:1;anchors_height:200;anchors_width:200;anchors_x:511;anchors_y:175}
 }
 ##^##*/

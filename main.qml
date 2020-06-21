@@ -1,5 +1,6 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
+import io.qt.examples.AudiosClass 1.0
 
 ApplicationWindow {
     id: window
@@ -10,6 +11,7 @@ ApplicationWindow {
     maximumWidth:  1300
     minimumHeight: 650
     minimumWidth:  1300
+
     title: qsTr("Your School Name")
 
     property var reqIndex : -1
@@ -403,13 +405,45 @@ ApplicationWindow {
             SimulationAvionTower {
                 id:simuAvionTower
 
+                onPlayAudio: {
+
+
+                    audioCpp.playfile(audioIndex)
+
+                }
                 onIncPage: {
                     view.receive(value)
                 }
 
+                onVolumeAudio: {
+                    audioCpp.setVolume(audioVolume)
+                }
+
+                onStopAudio: {
+                    audioCpp.stopfile()
+                }
+
+
+
             }
         }
 
+        Item{
+            id: eighteen
+            Aide2_13 {
+                id:aide13
+
+                onIncPage: {
+                    view.receive(value)
+                }
+            }
+        }
+
+
+        AudiosClass
+           {
+               id: audioCpp
+           }
 
 
         function setStaticIncrement(value)
