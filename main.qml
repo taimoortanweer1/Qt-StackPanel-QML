@@ -1,9 +1,12 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14
+
 import io.qt.examples.AudiosClass 1.0
 
 ApplicationWindow {
     id: window
+
+    //properties of the main window
     visible: true
     width: 1300
     height: 650
@@ -14,7 +17,10 @@ ApplicationWindow {
 
     title: qsTr("Your School Name")
 
+    //this index value is set when jumpping to new page
     property var reqIndex : -1
+
+    //
     header: ToolBar {
         contentHeight: toolButton.implicitHeight
 
@@ -28,13 +34,16 @@ ApplicationWindow {
             ToolTip.text: view.currentIndex > 1 ? qsTr("Home Page") : qsTr("Menu")
 
             onClicked: {
+
+                //if current index is not home , set it to home
                 if (view.currentIndex > 0) {
-                    //view.decrementCurrentIndex()
                     view.setCurrentIndex(0)
 
                     console.log(view.currentIndex)
 
-                } else {
+                }
+                //if you are in home page then open drawar
+                else {
                     drawer.open()
                 }
             }
@@ -54,10 +63,12 @@ ApplicationWindow {
         width: window.width * 0.2
         height: window.height
 
+        // setting all the items in a list of column in a drawer
         Column {
             anchors.fill: parent
             ItemDelegate {
 
+                //setting image of the item
                 Image {
                     id: image1
                     source: "qrc:/images/formationImage.png"
@@ -66,6 +77,7 @@ ApplicationWindow {
                     y : 13
                 }
 
+                //setting text
                 Text {
                     text: qsTr("Formation")
                     x: 25
@@ -73,6 +85,8 @@ ApplicationWindow {
                 }
 
                 width: parent.width
+
+                //go to respective page when clicked, other ItemDelegate works same like this
                 onClicked: {
                     view.setCurrentIndex(2)
 
@@ -215,7 +229,7 @@ ApplicationWindow {
         anchors.top: parent.top
 
 
-
+        //whenever page is scrolled text of the page is updated
         onCurrentIndexChanged: {
 
             var title = ["Acceil","Systeme","Introduction","Introduction","Introduction","Introduction",
@@ -227,14 +241,20 @@ ApplicationWindow {
             headertext.text = title[view.currentIndex]
 
         }
+
+        // setting the list of pages in the respective order for SwipeView
         //home
         Item {
             HomeForm{
                 id: home
 
 
+                //this slot is called when user change this page to some other page i.e. go backward or forward
+                //similar working for other pages
                 onIncPage: {
 
+                    //function used to increment or decrement the page
+                    //similar working for other pages
                     view.receive(value)
                 }
             }
@@ -405,8 +425,9 @@ ApplicationWindow {
             SimulationAvionTower {
                 id:simuAvionTower
 
-                onPlayAudio: {
 
+                //different slots for audio playing stopping and volume changing
+                onPlayAudio: {
 
                     audioCpp.playfile(audioIndex)
 
@@ -422,8 +443,6 @@ ApplicationWindow {
                 onStopAudio: {
                     audioCpp.stopfile()
                 }
-
-
 
             }
         }
@@ -441,32 +460,39 @@ ApplicationWindow {
 
 
         AudiosClass
-           {
-               id: audioCpp
-           }
-
-
-        function setStaticIncrement(value)
         {
-            view.setCurrentIndex(value)
+            //Cpp class initialised here
+            id: audioCpp
         }
 
-        function setOrientation(value)
-        {
-            if(value === 1)
-            {
-                view.orientation = Qt.Vertical
-            }
 
-            else if(value === 0 )
-            {
-                view.orientation = Qt.Horizontal
+//        function setStaticIncrement(value)
+//        {
+//            view.setCurrentIndex(value)
+//        }
 
-            }
-        }
+//        function setOrientation(value)
+//        {
+//            if(value === 1)
+//            {
+//                view.orientation = Qt.Vertical
+//            }
+
+//            else if(value === 0 )
+//            {
+//                view.orientation = Qt.Horizontal
+
+//            }
+//        }
 
         function receive(value)
         {
+            //if value is 1 go to next page
+            //if value is 2 go to next page two times
+            //if value is -1 go to previous page
+            //if value is -2 go to previous page two times
+            //if value is 6 go to next page six times
+            // similarly for other values
 
             reqIndex = view.currentIndex + value
             if(value > 0)
@@ -492,18 +518,19 @@ ApplicationWindow {
         }
 
 
-        Timer {
-            id: timer
-        }
+//        Timer {
+//            id: timer
+//        }
 
-        function delay(delayTime) {
-            timer.interval = delayTime;
-            timer.repeat = false;
-            timer.start();
-        }
+//        function delay(delayTime) {
+//            timer.interval = delayTime;
+//            timer.repeat = false;
+//            timer.start();
+//        }
 
     }
 
+    //Number of dots / page indicators
     PageIndicator {
         id: indicator
         count: view.count
@@ -513,6 +540,7 @@ ApplicationWindow {
     }
 
 
+    //only active pages are loaded to save memory
     Repeater {
         model: 3
         Loader {

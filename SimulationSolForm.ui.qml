@@ -5,6 +5,7 @@ import QtQuick.Controls 2.13
 Item {
     width: 1300
     height: 620
+    property alias buttonDemarText: buttonDemarText
     property alias rectangle1: rectangle1
 
     property alias buttonAide: buttonAide
@@ -557,12 +558,27 @@ Item {
                 id: buttonDemarr
                 x: 37
                 y: 519
-                width: 200
-                height: 74
-                text: qsTr("Demarr la simulation")
+                width: 156
+                height: 37
+
+                Text {
+                    id: buttonDemarText
+                    width: 156
+                    height: 37
+                    text: qsTr("Demarr la simulation")
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    color: "white"
+                }
+
                 checkable: true
                 flat: false
                 layer.enabled: false
+
+                background: Rectangle {
+                    color: "blue"
+                    radius: 18.5
+                }
             }
 
             Button {

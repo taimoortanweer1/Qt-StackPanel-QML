@@ -10,9 +10,12 @@ Page {
     width: 1300
     height: 620
     title: qsTr("System")
+
+    //signals to send for changing page
     signal incPage(var value)
     signal decPage(var value)
 
+    //declaring button and its properties
     Button {
         id: control
 
@@ -34,8 +37,6 @@ Page {
             color: control.hovered ? "#ffffff" : "transparent"
             border.color: "#ffffff"
             border.width: 2
-
-
 
             MouseArea {
                 anchors.fill: parent

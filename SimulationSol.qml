@@ -1,21 +1,34 @@
 import QtQuick 2.4
+import QtQuick.Dialogs 1.3
 
 SimulationSolForm {
 
     id:simuSol
+
+    //declaration of signals for any event
     signal incPage(var value)
     signal decPage(var value)
 
+    //active plane index value will be 1
     property var avion: [0,0,0] //which is the active plane
+
+    //main power var
     property bool power: false //powr of the selector panel
 
+    //starting and ending point of the line
     property var lineCanvas: [0,0,0,0] //line position
+
+    //target of communication / send data to which plane
     property var sendto: 1 //which plane to send data
+
     //0x03 one and two exchange
     //0x05 one and three exchange
     //0x06 two and three exchange
 
+    //start simulation var
     property var startSim: false
+
+    //when textbox is pressed, empty the values
     textFieldTX2.onPressed: {
 
         textFieldTX1.text = ""
@@ -41,8 +54,11 @@ SimulationSolForm {
         textFieldRX2.text = ""
         textFieldRX3.text = ""
     }
+
+
     switchAS.onToggled: {
 
+        //when active frequency is switched enable standby freq and vice versa
         if(switchAS.checked == true)
         {
             spinBoxActiveF.enabled = false
@@ -54,8 +70,10 @@ SimulationSolForm {
             spinBoxActiveF.enabled = true
             spinBoxStandByF.enabled = false
         }
+
     } //simulation power button
 
+    //when text is changed update the communication line
     textFieldTX1.onTextChanged: {
         canvas1.changeLEDAvion1()
     }
@@ -67,8 +85,11 @@ SimulationSolForm {
     textFieldTX3.onTextChanged: {
         canvas1.changeLEDAvion3()
     }
+
+    //when enter is pressed send the data to target plane
     textFieldTX1.onEditingFinished: {
 
+        //if simulation is started then send the data
         if(startSim === true)
             canvas1.sendFunction1()
 
@@ -91,81 +112,103 @@ SimulationSolForm {
 
     buttonAide.onClicked: {
 
+        //go to aide page
         simuSol.incPage(1);
     }
 
 
     buttonDemarr.onToggled: {
 
-        if(buttonDemarr.checked)
+        //if power switch is off open message dialog and reset button state
+        if(switchOnOff.checked === false)
         {
-            startSim = true
-            //sliderAV1.enabled = true
-            //sliderAV2.enabled = true
-            //sliderAV3.enabled = true
-
-
-            if(avion[0] === 1)
-            {
-                sliderAV1.enabled = true
-                sliderAV2.enabled = false
-                sliderAV3.enabled = false
-
-                rectangleLED1.color = "#FF0000"
-                rectangleLED2.color = "#00FF00"
-                rectangleLED3.color = "#00FF00"
-
-            }
-            else if(avion[1] === 1)
-            {
-                sliderAV2.enabled = true
-                sliderAV1.enabled = false
-                sliderAV1.enabled = false
-
-                rectangleLED2.color = "#FF0000"
-                rectangleLED1.color = "#00FF00"
-                rectangleLED3.color = "#00FF00"
-            }
-            else if(avion[2] === 1)
-            {
-                sliderAV3.enabled = true
-                sliderAV1.enabled = false
-                sliderAV2.enabled = false
-
-                rectangleLED3.color = "#FF0000"
-                rectangleLED1.color = "#00FF00"
-                rectangleLED2.color = "#00FF00"
-            }
-
+            messagePower.open()
+            buttonDemarr.checked = false
 
         }
         else
         {
-            canvas1.linePosition(0,0,0,0)
-            canvas1.clear_canvas()
-            canvas1.requestPaint()
 
-            startSim = false
-            textFieldRX1.text = ""
-            textFieldRX2.text = ""
-            textFieldRX3.text = ""
-            textFieldTX1.text = ""
-            textFieldTX2.text = ""
-            textFieldTX3.text = ""
-            sliderAV1.enabled = false
-            sliderAV2.enabled = false
-            sliderAV3.enabled = false
-            rectangleLED1.color = "black"
-            rectangleLED2.color = "black"
-            rectangleLED3.color = "black"
+            //if button is true
+            if(buttonDemarr.checked)
+            {
+                startSim = true //update sim data
+                buttonDemarText.text = "Arretez la simulation"
+
+                //if active plane is avion 1
+                if(avion[0] === 1)
+                {
+                    //only sender switch of avion 1 is enable, others are disabled
+                    sliderAV1.enabled = true
+                    sliderAV2.enabled = false
+                    sliderAV3.enabled = false
+
+                    rectangleLED1.color = "#FF0000"
+                    rectangleLED2.color = "#00FF00"
+                    rectangleLED3.color = "#00FF00"
+
+                }
+
+                //if active plane is avion 2
+                else if(avion[1] === 1)
+                {
+                    //only sender switch of avion 2 is enable, others are disabled
+                    sliderAV2.enabled = true
+                    sliderAV1.enabled = false
+                    sliderAV1.enabled = false
+
+                    rectangleLED2.color = "#FF0000"
+                    rectangleLED1.color = "#00FF00"
+                    rectangleLED3.color = "#00FF00"
+                }
+
+                //if active plane is avion 3
+                else if(avion[2] === 1)
+                {
+                    //only sender switch of avion 3 is enable, others are disabled
+                    sliderAV3.enabled = true
+                    sliderAV1.enabled = false
+                    sliderAV2.enabled = false
+
+                    rectangleLED3.color = "#FF0000"
+                    rectangleLED1.color = "#00FF00"
+                    rectangleLED2.color = "#00FF00"
+                }
+
+
+            }
+            else
+            {
+
+                //if simulation is stopped, reset data
+                buttonDemarText.text = "Demarr la simulation"
+
+                canvas1.linePosition(0,0,0,0)
+                canvas1.clear_canvas()
+                canvas1.requestPaint()
+
+                startSim = false
+                textFieldRX1.text = ""
+                textFieldRX2.text = ""
+                textFieldRX3.text = ""
+                textFieldTX1.text = ""
+                textFieldTX2.text = ""
+                textFieldTX3.text = ""
+                sliderAV1.enabled = false
+                sliderAV2.enabled = false
+                sliderAV3.enabled = false
+                rectangleLED1.color = "black"
+                rectangleLED2.color = "black"
+                rectangleLED3.color = "black"
+            }
+
         }
-
-
     }
 
 
     Canvas
     {
+        //creation of a canvas to draw line with given properties
         width: parent.width
         height: parent.height
         id: canvas1
@@ -191,10 +234,13 @@ SimulationSolForm {
 
         function linePosition (x1,y1,x2,y2) {
 
+            //save start and end position of line
             lineCanvas = [x1,y1,x2,y2]
         }
 
         function clear_canvas () {
+
+            //clear the line from the canvas
             var ctx = getContext("2d");
             ctx.reset();
             canvas1.requestPaint();
@@ -202,33 +248,29 @@ SimulationSolForm {
 
         function sendFunction1()
         {
+            //if plane 1 is active
             if(avion[0] === 1)
             {
 
+                //copy data from 1 to 2,3
                 textFieldRX2.text = textFieldTX1.text
                 textFieldRX3.text = textFieldTX1.text
 
-
-//                if(sendto === 3)
-//                {
-//                    textFieldRX2.text = textFieldTX1.text
-//                }
-//                if(sendto === 5)
-//                {
-//                    textFieldRX3.text = textFieldTX1.text
-//                }
             }
 
+            //if main switch 1 is selected but now in this case plane 2 send ddata to plane 1
             if(avion[1] === 1 && sendto === 3)
             {
                 textFieldRX1.text = textFieldTX2.text
             }
 
+            //if main switch 1 is selected but now in this case plane 3 send ddata to plane 1
             else if (avion[2] === 1 && sendto === 5)
             {
                 textFieldRX1.text = textFieldTX2.text
             }
         }
+
         function sendFunction2() {
             if(avion[1] === 1)
             {
@@ -287,6 +329,7 @@ SimulationSolForm {
 
         function changeLEDAvion1()
         {
+            //update LEDS when switch is changed
             if(avion[0] === 1 && startSim === true)
             {
                 if(sendto === 3)
@@ -343,8 +386,11 @@ SimulationSolForm {
 
 
     switchOnOff.onToggled: {
+
         if(switchOnOff.checked)
-        { power = true
+        {
+            //if power is ON enable controls
+            power = true
             spinBoxActiveF.enabled = true
             spinBoxStandByF.enabled = true
             switchAS.enabled = true
@@ -365,6 +411,7 @@ SimulationSolForm {
         }
         else
         {
+            //if power is OFF disable controls and clear line
             canvas1.linePosition(0,0,0,0)
             canvas1.clear_canvas()
             canvas1.requestPaint()
@@ -402,8 +449,10 @@ SimulationSolForm {
 
     sliderAV3.onValueChanged: {
 
+        //if plane 3 is selected
         if(avion[2] === 1)
         {
+            //if value of slider is at plane 2
             if(sliderAV3.value == 0) {
                 sendto = 6
                 avion = [0,1,1]
@@ -411,9 +460,11 @@ SimulationSolForm {
                 rectangleLED2.color = "#00FF00"
                 rectangleLED3.color = "#FF0000"
 
+                //draw line between plane 2 and 3
                 canvas1.linePosition(sliderAV3.x,sliderAV3.y,sliderAV2.x,sliderAV2.y)
             }
 
+            //if value of slider is at plane 1
             if(sliderAV3.value == 10) {
                 sendto = 5
                 avion = [1,0,1]
@@ -421,10 +472,12 @@ SimulationSolForm {
                 rectangleLED2.color = "#00FF00"
                 rectangleLED3.color = "#FF0000"
 
+                //draw line between plane 3 and 1
                 canvas1.linePosition(sliderAV3.x,sliderAV3.y,sliderAV1.x,sliderAV1.y)
 
             }
         }
+
         canvas1.clear_canvas()
         canvas1.requestPaint()
 
@@ -496,6 +549,7 @@ SimulationSolForm {
 
         if(power === true)
         {
+            //if plane 1 is selected
             if(sliderAVSelect.value == 0)
             {
                 avion[0] = 1
@@ -512,7 +566,7 @@ SimulationSolForm {
 
             }
 
-
+            //if plane 2 is selected
             if(sliderAVSelect.value == 5)
             {
                 avion[0] = 0
@@ -529,6 +583,7 @@ SimulationSolForm {
                 sliderAV3.enabled = false
             }
 
+            //if plane 3 is selected
             if(sliderAVSelect.value == 10)
             {
                 avion[0] = 0
@@ -544,7 +599,18 @@ SimulationSolForm {
                 sliderAV2.enabled = false
             }
         }
+
+        canvas1.linePosition(0,0,0,0)
         canvas1.clear_canvas()
+
+
+
+    }
+
+    MessageDialog {
+        id: messagePower
+        standardButtons: StandardButton.Ok
+        text: "Please switch On Simulator Power"
 
     }
 

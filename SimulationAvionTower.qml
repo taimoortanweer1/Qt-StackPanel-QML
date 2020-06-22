@@ -4,14 +4,16 @@ SimulationAvionTowerForm {
 
 
     id:simuSol
+
+    //declaration of signals for any event
     signal incPage(var value)
     signal decPage(var value)
     signal playAudio(var value)
     signal stopAudio()
     signal volumeAudio()
 
-    property int audioIndex: 0
-    property int audioVolume: 50
+    property int audioIndex: 0 //audio to be played
+    property int audioVolume: 50 // init audio volumeS
     property var avion: [0,0,0] //which is the active plane
     property bool power: false //powr of the selector panel
 
@@ -23,24 +25,30 @@ SimulationAvionTowerForm {
     property var startSim: false
     buttonDemarr.onToggled: {
 
+        //if power swithci is not ON
         if(switchOnOff.checked != true)
         {
+            //show message
             messagePower.open()
         }
         else
         {
+            //if simulation is started
             if(buttonDemarr.checked === true)
             {
+                //start all plane animatinos
                 animationRightPlane.start()
                 animationTakeOff.start()
                 animationTakeOffY.start()
 
+                //updated the text
                 buttonDemarText.text = "Arretez la simulation"
 
             }
             else
             {
 
+                //if simulation is stopped initialise to original values
                 rectangleLED1.x =21
                 rectangleLED1.y =523
 
@@ -69,22 +77,30 @@ SimulationAvionTowerForm {
         }
     }
     buttonAide.onClicked: {
+
+        //go to aide page
         simuSol.incPage(1)
     }
     dialvolume.onValueChanged: {
+
+        //change volume. it will send signal to cpp file
         audioVolume = dialvolume.value
         volumeAudio()
     }
     rectanglePlaneLeft.onXChanged: {
 
+
+        //if left plane is in the specific region, play this audio
         //pair 1
         if(rectanglePlaneLeft.x >= 50 && rectanglePlaneLeft.x <= 51)
         {
             //t 1
-            audioIndex = 0
-            rectangleLED1.color = "green"
+
+
+            audioIndex = 0 // set audio index
+            rectangleLED1.color = "green" //set color of LED
             rectangleLED2.color = "red"
-            playAudio(0);
+            playAudio(0); //send signal to cpp file
         }
         else if(rectanglePlaneLeft.x >= 150 && rectanglePlaneLeft.x <= 151)
         {
@@ -178,7 +194,7 @@ SimulationAvionTowerForm {
 
     rectanglePlaneRight.onXChanged: {
 
-        //if(rectanglePlaneRight.x > 700 && rectanglePlaneRight.x < 1000)
+        //if plane is in this region change color to green
         if(rectanglePlaneRight.x < 500 && rectanglePlaneRight.x > 200)
         {
             rectangleLED3.color = "green"
@@ -192,12 +208,13 @@ SimulationAvionTowerForm {
 
     buttonrRemplir.onClicked: {
 
+        //show flight pplane form
         flightplan.visible = true
     }
 
     switchAS.onToggled: {
 
-
+        //left plane has reached end of circle and switch is on the right side then update the value
         if(switchAS.checked != true && rectanglePlaneLeft.x === 600)
         {
             //spinBoxActiveF.enabled = false
@@ -278,21 +295,25 @@ SimulationAvionTowerForm {
     }
 
 
-    PropertyAnimation { id: animationSignal;
-        targets: [rectangleSignal,rectangleSignal1,rectangleSignal2];
-        property: "x";
-        to: 330;
-        duration: 500
+    //animations used to move signal signs from plane to tower
+    PropertyAnimation {
+        id: animationSignal;
+        targets: [rectangleSignal,rectangleSignal1,rectangleSignal2]; //objects to be moved
+        property: "x"; //whhich property to update with time
+        to: 330; // final value of property
+        duration: 500 //complete the animation in this time
         property var d: 0
 
 
         onStarted: {
+            //when animation starts do this
             rectangleSignal.visible = true
             rectangleSignal1.visible = true
             rectangleSignal2.visible = true
         }
 
         onStopped: {
+            //when animation ends go to initial postion
             rectangleSignal.x = 112
             rectangleSignal1.x = 150
             rectangleSignal2.x = 188
@@ -301,11 +322,13 @@ SimulationAvionTowerForm {
             rectangleSignal1.visible = false
             rectangleSignal2.visible = false
 
+            // if signal is sent three times start valid signal animation
             if(d===3)
             {
                 animationValid.start()
                 d = 0
             }
+            // if signal is not sent three times then keep sending
             else
             {
                 animationSignal.start()
@@ -314,7 +337,9 @@ SimulationAvionTowerForm {
         }
     }
 
-    PropertyAnimation { id: animationValid;
+    //show valid signal for 2000 milliseconds
+    PropertyAnimation {
+        id: animationValid;
         targets: [labelValidPlan];
         property: "visible";
         //to: 100;
@@ -328,6 +353,7 @@ SimulationAvionTowerForm {
         }
     }
 
+    //animation to update left plane and its led position x in the given time
     PropertyAnimation { id: animationTakeOff;
         targets: [rectanglePlaneLeft,rectangleLED1];
         property: "x"
@@ -342,6 +368,7 @@ SimulationAvionTowerForm {
         }
     }
 
+    //animation to update left plane and its led position y in the given time
     PropertyAnimation { id: animationTakeOffY;
         targets: [rectanglePlaneLeft,rectangleLED1];
         property: "y"
@@ -361,6 +388,7 @@ SimulationAvionTowerForm {
         }
     }
 
+    //animation to update left plane and its led position x after the frequency changed
     PropertyAnimation { id: animationHalfPoint;
         targets: [rectanglePlaneLeft,rectangleLED1];
         property: "x"
@@ -380,6 +408,7 @@ SimulationAvionTowerForm {
         }
     }
 
+    //animation to update left plane and its led position y after the frequency changed
     PropertyAnimation { id: animationTakeOffYHalfPoint;
         targets: [rectanglePlaneLeft,rectangleLED1];
         property: "y"
@@ -400,6 +429,7 @@ SimulationAvionTowerForm {
     }
 
 
+    //animation to update right plane and its led position x
     PropertyAnimation { id: animationRightPlane;
         targets: [rectanglePlaneRight,rectangleLED3];
         property: "x";
@@ -421,10 +451,13 @@ SimulationAvionTowerForm {
 
     }
 
+    //initial plan form
     FlightPlan {
         id: flightplan
         visible: false
         onValidate:{
+
+            //when validate button is pressed send the signal to tower and start the signal animation
             flightplan.visible = false
             animationSignal.start()
 
